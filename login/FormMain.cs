@@ -31,21 +31,26 @@ namespace login
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {   //search
-            FormSearchProduct form = new FormSearchProduct();
+        {//search product quantity
+            FormSearchProductQuantity form = new FormSearchProductQuantity();
             form.ShowDialog();
         }
 
 
         private void Button2_Click(object sender, EventArgs e)
-        { // refresh
+        {//search product location
+            FormSearchProductLocation form = new FormSearchProductLocation();
+            form.ShowDialog();
+        }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {//search shipment expected arrival time
+            FormSearchShipmentTime form = new FormSearchShipmentTime();
+            form.ShowDialog();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'loginDataSet1.Product' table. You can move, or remove it, as needed.
-            this.productTableAdapter.Fill(this.loginDataSet1.Product);
             // TODO: This line of code loads data into the 'loginDataSet.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.loginDataSet.Product);
             dataGridView1.DataSource = Source();
@@ -77,13 +82,6 @@ namespace login
             dataGridView1.DataSource = Source();
         }
 
-        /*
-        private void Form5_UpdateEventHandler(object sender, Form5.UpdateEventArgs args)
-        {
-            dataGridView1.DataSource = Source();
-        }
-        */
-
         private void insertProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormInsertProduct form = new FormInsertProduct(this);
@@ -109,11 +107,6 @@ namespace login
         {
             FormDeleteSupplier form = new FormDeleteSupplier();
             form.ShowDialog();
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

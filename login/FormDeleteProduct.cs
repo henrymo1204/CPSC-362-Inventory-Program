@@ -15,12 +15,14 @@ namespace login
     public partial class FormDeleteProduct : Form
     {
         SqlConnection sqlcon = null;
+        int count = 0;
 
         public FormDeleteProduct(FormMain form)
         {
             InitializeComponent();
             Connection open = new Connection();
             this.sqlcon = open.connect();
+            update_combobox();
         }
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
@@ -37,6 +39,23 @@ namespace login
             UpdateEventHandler.Invoke(this, args);
         }
 
+        private void update_combobox()//refresh combobox
+        {
+            comboBox1.Items.Clear();
+            sqlcon.Open();
+            SqlCommand query = new SqlCommand("SELECT ProductName FROM Product;", sqlcon);
+            SqlDataAdapter da = new SqlDataAdapter(query);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            count = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                comboBox1.Items.Add(ds.Tables[0].Rows[i][0]);
+            }
+            count--;
+            sqlcon.Close();
+        }
+
         private void Button2_Click(object sender, EventArgs e)
         {   //exit
             Close();
@@ -46,12 +65,18 @@ namespace login
         {//delete
             sqlcon.Open();
             SqlCommand query = new SqlCommand("DELETE FROM Product WHERE productID = @productID", sqlcon);
-            query.Parameters.AddWithValue("@productID", textBox1.Text);
+            SqlCommand query1 = new SqlCommand("SELECT ProductID FROM Product WHERE ProductName = '" + comboBox1.SelectedItem + "';", sqlcon);
+            SqlDataReader read = query1.ExecuteReader();
+            read.Read();
+            string output = read.GetString(0);
+            read.Close();
+            query.Parameters.AddWithValue("@productID", output);
             query.ExecuteNonQuery();
             update();
             sqlcon.Close();
-            //update gridview in form2
-            textBox1.Text = String.Empty;
+            MessageBox.Show("Product Deleted.");
+            update_combobox();
+            comboBox1.Text = string.Empty;
         }
     }
 }

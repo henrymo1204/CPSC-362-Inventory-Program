@@ -98,23 +98,35 @@
     <Compile Include="FormDeleteSupplier.Designer.cs">
       <DependentUpon>FormDeleteSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEditProduct.cs">
+    <Compile Include="FormUpdateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEditProduct.Designer.cs">
-      <DependentUpon>FormEditProduct.cs</DependentUpon>
+    <Compile Include="FormUpdateProduct.Designer.cs">
+      <DependentUpon>FormUpdateProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEditSupplier.cs">
+    <Compile Include="FormUpdateSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEditSupplier.Designer.cs">
-      <DependentUpon>FormEditSupplier.cs</DependentUpon>
+    <Compile Include="FormUpdateSupplier.Designer.cs">
+      <DependentUpon>FormUpdateSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSearchProduct.cs">
+    <Compile Include="FormSearchProductLocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSearchProduct.Designer.cs">
-      <DependentUpon>FormSearchProduct.cs</DependentUpon>
+    <Compile Include="FormSearchProductLocation.Designer.cs">
+      <DependentUpon>FormSearchProductLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchProductQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchProductQuantity.Designer.cs">
+      <DependentUpon>FormSearchProductQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchShipmentTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchShipmentTime.Designer.cs">
+      <DependentUpon>FormSearchShipmentTime.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -141,14 +153,20 @@
     <EmbeddedResource Include="FormDeleteSupplier.resx">
       <DependentUpon>FormDeleteSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditProduct.resx">
-      <DependentUpon>FormEditProduct.cs</DependentUpon>
+    <EmbeddedResource Include="FormSearchShipmentTime.resx">
+      <DependentUpon>FormSearchShipmentTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditSupplier.resx">
-      <DependentUpon>FormEditSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="FormUpdateProduct.resx">
+      <DependentUpon>FormUpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSearchProduct.resx">
-      <DependentUpon>FormSearchProduct.cs</DependentUpon>
+    <EmbeddedResource Include="FormUpdateSupplier.resx">
+      <DependentUpon>FormUpdateSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchProductLocation.resx">
+      <DependentUpon>FormSearchProductLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchProductQuantity.resx">
+      <DependentUpon>FormSearchProductQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
