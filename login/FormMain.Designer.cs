@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.loginDataSet = new login.LoginDataSet();
             this.productTableAdapter = new login.LoginDataSetTableAdapters.ProductTableAdapter();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -42,24 +51,15 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expirationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -95,137 +95,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(697, 386);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // loginDataSet
-            // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.insertToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.editToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
-            this.menuStrip1.TabIndex = 9;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // insertToolStripMenuItem
-            // 
-            this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.insertProductToolStripMenuItem,
-            this.insertSupplierToolStripMenuItem});
-            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.insertToolStripMenuItem.Text = "Insert";
-            // 
-            // insertProductToolStripMenuItem
-            // 
-            this.insertProductToolStripMenuItem.Name = "insertProductToolStripMenuItem";
-            this.insertProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.insertProductToolStripMenuItem.Text = "Insert Product";
-            this.insertProductToolStripMenuItem.Click += new System.EventHandler(this.insertProductToolStripMenuItem_Click);
-            // 
-            // insertSupplierToolStripMenuItem
-            // 
-            this.insertSupplierToolStripMenuItem.Name = "insertSupplierToolStripMenuItem";
-            this.insertSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.insertSupplierToolStripMenuItem.Text = "Insert Supplier";
-            this.insertSupplierToolStripMenuItem.Click += new System.EventHandler(this.insertSupplierToolStripMenuItem_Click_1);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteProductToolStripMenuItem,
-            this.deleteSupplierToolStripMenuItem});
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // deleteProductToolStripMenuItem
-            // 
-            this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.deleteProductToolStripMenuItem.Text = "Delete Product";
-            this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
-            // 
-            // deleteSupplierToolStripMenuItem
-            // 
-            this.deleteSupplierToolStripMenuItem.Name = "deleteSupplierToolStripMenuItem";
-            this.deleteSupplierToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.deleteSupplierToolStripMenuItem.Text = "Delete Supplier";
-            this.deleteSupplierToolStripMenuItem.Click += new System.EventHandler(this.deleteSupplierToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editProductToolStripMenuItem,
-            this.editSupplierToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.editToolStripMenuItem.Text = "Update";
-            // 
-            // editProductToolStripMenuItem
-            // 
-            this.editProductToolStripMenuItem.Name = "editProductToolStripMenuItem";
-            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editProductToolStripMenuItem.Text = "Update Product";
-            // 
-            // editSupplierToolStripMenuItem
-            // 
-            this.editSupplierToolStripMenuItem.Name = "editSupplierToolStripMenuItem";
-            this.editSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editSupplierToolStripMenuItem.Text = "Update Supplier";
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(19, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 60);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Search Product Location";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(19, 198);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 60);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Search Shipment Expected Arrival Time";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.loginDataSet;
             // 
             // productIDDataGridViewTextBoxColumn
             // 
@@ -275,6 +144,139 @@
             this.supplierIDDataGridViewTextBoxColumn.HeaderText = "SupplierID";
             this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.loginDataSet;
+            // 
+            // loginDataSet
+            // 
+            this.loginDataSet.DataSetName = "LoginDataSet";
+            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.insertToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.updateToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.insertProductToolStripMenuItem,
+            this.insertSupplierToolStripMenuItem});
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.insertToolStripMenuItem.Text = "Insert";
+            // 
+            // insertProductToolStripMenuItem
+            // 
+            this.insertProductToolStripMenuItem.Name = "insertProductToolStripMenuItem";
+            this.insertProductToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.insertProductToolStripMenuItem.Text = "Insert Product";
+            this.insertProductToolStripMenuItem.Click += new System.EventHandler(this.insertProductToolStripMenuItem_Click);
+            // 
+            // insertSupplierToolStripMenuItem
+            // 
+            this.insertSupplierToolStripMenuItem.Name = "insertSupplierToolStripMenuItem";
+            this.insertSupplierToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.insertSupplierToolStripMenuItem.Text = "Insert Supplier";
+            this.insertSupplierToolStripMenuItem.Click += new System.EventHandler(this.insertSupplierToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteProductToolStripMenuItem,
+            this.deleteSupplierToolStripMenuItem});
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // deleteProductToolStripMenuItem
+            // 
+            this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.deleteProductToolStripMenuItem.Text = "Delete Product";
+            this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
+            // 
+            // deleteSupplierToolStripMenuItem
+            // 
+            this.deleteSupplierToolStripMenuItem.Name = "deleteSupplierToolStripMenuItem";
+            this.deleteSupplierToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.deleteSupplierToolStripMenuItem.Text = "Delete Supplier";
+            this.deleteSupplierToolStripMenuItem.Click += new System.EventHandler(this.deleteSupplierToolStripMenuItem_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(19, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 60);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Search Product Location";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(19, 198);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(85, 60);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Search Shipment Expected Arrival Time";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateProductToolStripMenuItem,
+            this.updateSupplierToolStripMenuItem});
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.updateToolStripMenuItem.Text = "Update";
+            // 
+            // updateProductToolStripMenuItem
+            // 
+            this.updateProductToolStripMenuItem.Name = "updateProductToolStripMenuItem";
+            this.updateProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateProductToolStripMenuItem.Text = "Update Product";
+            this.updateProductToolStripMenuItem.Click += new System.EventHandler(this.updateProductToolStripMenuItem_Click);
+            // 
+            // updateSupplierToolStripMenuItem
+            // 
+            this.updateSupplierToolStripMenuItem.Name = "updateSupplierToolStripMenuItem";
+            this.updateSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateSupplierToolStripMenuItem.Text = "Update Supplier";
+            this.updateSupplierToolStripMenuItem.Click += new System.EventHandler(this.updateSupplierToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,10 +293,10 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,9 +314,6 @@
         private System.Windows.Forms.ToolStripMenuItem insertProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editProductToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editSupplierToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem insertSupplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteSupplierToolStripMenuItem;
@@ -328,5 +327,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productLocationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateSupplierToolStripMenuItem;
     }
 }

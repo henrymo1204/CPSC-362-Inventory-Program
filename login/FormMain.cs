@@ -96,7 +96,7 @@ namespace login
             form.ShowDialog();
         }
 
-        private void insertSupplierToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void insertSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormInsertSupplier form = new FormInsertSupplier();
             //form.UpdateEventHandler += Form5_UpdateEventHandler;
@@ -106,6 +106,18 @@ namespace login
         private void deleteSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDeleteSupplier form = new FormDeleteSupplier();
+            form.ShowDialog();
+        }
+
+        private void updateProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUpdateProduct form = new FormUpdateProduct();
+            form.ShowDialog();
+        }
+
+        private void updateSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUpdateSupplier form = new FormUpdateSupplier();
             form.ShowDialog();
         }
     }
