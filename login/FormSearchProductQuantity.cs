@@ -30,14 +30,14 @@ namespace login
         {
             comboBox1.Items.Clear();
             sqlcon.Open();
-            SqlCommand query = new SqlCommand("SELECT ProductName FROM Product;", sqlcon);
+            SqlCommand query = new SqlCommand("SELECT ProductBrand, ProductName FROM Product;", sqlcon);
             SqlDataAdapter da = new SqlDataAdapter(query);
             DataSet ds = new DataSet();
             da.Fill(ds);
             count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                comboBox1.Items.Add(ds.Tables[0].Rows[i][0]);
+                comboBox1.Items.Add(ds.Tables[0].Rows[i][0] + " " + ds.Tables[0].Rows[i][0]);
             }
             count--;
             sqlcon.Close();
