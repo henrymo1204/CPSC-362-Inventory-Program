@@ -40,12 +40,12 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(135, 122);
-            this.button3.Name = "button3";
+            this.button3.Name = "button2";
             this.button3.Size = new System.Drawing.Size(85, 40);
             this.button3.TabIndex = 13;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 

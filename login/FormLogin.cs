@@ -15,39 +15,53 @@ namespace login
     public partial class FormLogin : Form
     {
 
-        SqlConnection sqlcon = null;
+        SqlConnection sqlcon = null;//sql connection variable
 
         public FormLogin()
         {
             InitializeComponent();
-            Connection open = new Connection();
-            this.sqlcon = open.connect();
+            Connection open = new Connection();//create a connection object
+            this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//close login form
         }
 
 
         private void Login_button_Click(object sender, EventArgs e)
         {
-            sqlcon.Open();
-            string query = "Select * from Login WHERE username = '" + txtUsername.Text.Trim() + "' and password = '" + txtPassword.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
-            DataTable dtbl = new DataTable();
-            sda.Fill(dtbl);
-            if (dtbl.Rows.Count == 1)
+            if (string.IsNullOrEmpty(txtUsername.Text) && string.IsNullOrEmpty(txtPassword.Text))//if user did not input both username and password
             {
-                FormMain objForm2 = new FormMain();
-                this.Hide();
-                objForm2.Show();
+                MessageBox.Show("You did not enter username and password!");//show message box
             }
-            else
+            else if (!string.IsNullOrEmpty(txtUsername.Text) && string.IsNullOrEmpty(txtPassword.Text))//if user did not input password
             {
-                MessageBox.Show("Invalid Username and Password!");
+                MessageBox.Show("You did not enter password!");//show message box
             }
-            sqlcon.Close();
+            else if (string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))//if user did not input username
+            {
+                MessageBox.Show("You did not enter username!");//show message box
+            }
+            else//if user did input both username and password
+            {
+                sqlcon.Open();//open database
+                SqlCommand query = new SqlCommand("SELECT password FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
+                query.Parameters.AddWithValue("username", txtUsername.Text);//set username to look for to user input username
+                string output = query.ExecuteScalar().ToString();//set output to value output from executing the query
+                if (txtPassword.Text == output)//compare user input password to the password in database
+                {//if they are the same
+                    FormMain form = new FormMain();//create main form object
+                    this.Hide();//hide current form
+                    form.Show();//show main form
+                }
+                else
+                {//if they are not the same
+                    MessageBox.Show("Invalid Username and Password!");//shows a message box that tells the user "Invalid Username and Password!"
+                }
+                sqlcon.Close();//close database
+            }
         }
     }
 }

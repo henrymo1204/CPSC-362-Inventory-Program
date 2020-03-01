@@ -15,13 +15,14 @@ namespace login
     public partial class FormInsertSupplier : Form
     {
 
-        SqlConnection sqlcon = null;
+        SqlConnection sqlcon = null;//sql connection variable
 
-        public FormInsertSupplier()
+        public FormInsertSupplier()//constructor
         {
             InitializeComponent();
-            Connection open = new Connection();
-            this.sqlcon = open.connect();
+            Connection open = new Connection();// create a connection object
+            this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
+            update();
         }
 
         public void update()

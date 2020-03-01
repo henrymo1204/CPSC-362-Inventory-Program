@@ -14,15 +14,14 @@ namespace login
 {
     public partial class FormDeleteProduct : Form
     {
-        SqlConnection sqlcon = null;
-        int count = 0;
+        SqlConnection sqlcon = null;//sql connection variable
 
-        public FormDeleteProduct(FormMain form)
+        public FormDeleteProduct(FormMain form)//constructor
         {
             InitializeComponent();
-            Connection open = new Connection();
-            this.sqlcon = open.connect();
-            update_combobox();
+            Connection open = new Connection();// create a connection object
+            this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
+            update_combobox();//update combobox
         }
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
@@ -33,50 +32,51 @@ namespace login
             public string Data { get; set; }
         }
 
-        protected void update()
+        protected void update_main_form()//update gridview in main form
         {
-            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventArgs args = new UpdateEventArgs();//create new update event args object
             UpdateEventHandler.Invoke(this, args);
         }
 
-        private void update_combobox()//refresh combobox
+        private void update_combobox()//update combobox
         {
-            comboBox1.Items.Clear();
-            sqlcon.Open();
-            SqlCommand query = new SqlCommand("SELECT ProductBrand, ProductName FROM Product;", sqlcon);
-            SqlDataAdapter da = new SqlDataAdapter(query);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            count = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < count; i++)
+            comboBox1.Items.Clear();//clear combobox
+            sqlcon.Open();//open database
+            SqlCommand query = new SqlCommand("SELECT ProductBrand, ProductName FROM Product;", sqlcon);//get product brand and product name from Product entity
+            SqlDataReader read = query.ExecuteReader();//execute query and store values to data reader
+            while (read.Read())//while reading data from data reader
             {
-                comboBox1.Items.Add(ds.Tables[0].Rows[i][0] + " " + ds.Tables[0].Rows[i][1]);
+                comboBox1.Items.Add(read.GetString(0) + " " + read.GetString(1));//add items to combobox1
             }
-            count--;
-            sqlcon.Close();
+            read.Close();//close data reader
+            sqlcon.Close();//close database
         }
 
-        private void Button2_Click(object sender, EventArgs e)
-        {   //exit
-            Close();
+        private void Button2_Click(object sender, EventArgs e)//exit delete product form
+        {   
+            Close();//close delete product form
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {//delete
-            sqlcon.Open();
-            SqlCommand query = new SqlCommand("DELETE FROM Product WHERE productID = @productID", sqlcon);
-            SqlCommand query1 = new SqlCommand("SELECT ProductID FROM Product WHERE ProductName = '" + comboBox1.SelectedItem + "';", sqlcon);
-            SqlDataReader read = query1.ExecuteReader();
-            read.Read();
-            string output = read.GetString(0);
-            read.Close();
-            query.Parameters.AddWithValue("@productID", output);
-            query.ExecuteNonQuery();
-            update();
-            sqlcon.Close();
-            MessageBox.Show("Product Deleted.");
-            update_combobox();
-            comboBox1.Text = string.Empty;
+        private void Button1_Click(object sender, EventArgs e)//delete product
+        {
+            SqlCommand query = new SqlCommand("DELETE FROM Product WHERE productID = @productID", sqlcon);//delete product from database
+            SqlCommand query1 = new SqlCommand("SELECT ProductID FROM Product WHERE ProductBrand + ' ' + ProductName = '" + comboBox1.SelectedItem + "';", sqlcon);//get product id from product brand + product name in combobox1
+            if(comboBox1.SelectedIndex > -1)//check if something is selected in combobox1
+            {//if true
+                sqlcon.Open();//open database
+                string output = query1.ExecuteScalar().ToString();////set output to value output from executing the query
+                query.Parameters.AddWithValue("@productID", output);//set product id to text in value in output
+                query.ExecuteNonQuery();//execute query
+                update_main_form();//update grid view in main form
+                MessageBox.Show("Product Deleted.");//show message box
+                sqlcon.Close();//close database
+                update_combobox();//update combobox1
+                comboBox1.Text = string.Empty;//reset combobox1
+            }
+            else
+            {
+                MessageBox.Show("Product not selected");//show message box
+            }
         }
     }
 }
