@@ -31,6 +31,7 @@ namespace login
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
         public event UpdateDelegate UpdateEventHandler;
+
         private void update_combobox()//update combobox
         {
             comboBox1.Items.Clear();//clear combobox
@@ -78,10 +79,7 @@ namespace login
             {
 
                 sqlcon.Open();
-                SqlCommand query = new SqlCommand("SELECT productID FROM Product WHERE productID = @productID;", sqlcon);
-                query.Parameters.AddWithValue("@productID", comboBox2.Text);
-                var test = query.ExecuteScalar().ToString();
-
+                SqlCommand query = new SqlCommand("SELECT SupplierID FROM Supplier WHERE SupplierName = @SupplierName;", sqlcon);
 
                 var updateStr = "UPDATE Product SET "; //begin SQL string
                 //update SQL string for each textbox
@@ -95,21 +93,10 @@ namespace login
                 //update supplier from combobox
                 if (comboBox1.SelectedIndex > -1)//check if something is selected in combobox1
                 {
-                    //user selects supplier name, convert to supplierID
-                    string sID = string.Empty;
-                    foreach (var s in suppliers)
-                    {
-                        if (s.SupplierName == comboBox1.SelectedItem.ToString()) //match name with ID
-                        {
-                            sID = s.SupplierID;
-                            break;
-                        }
-                    }
-                    updateStr += update("SupplierID", sID); //update SQL string
-
-                    comboBox1.SelectedIndex = -1;//reset combobox1
+                    query.Parameters.AddWithValue("@SupplierName", comboBox1.Text);
+                    string supplierid = query.ExecuteScalar().ToString();
+                    updateStr += update("supplierID", supplierid);
                 }
-
 
                 updateStr = updateStr.Trim().TrimEnd(','); //remove comma
                 updateStr += " where productId = '" + comboBox2.Text + "'"; //finish the SQL string
@@ -152,9 +139,6 @@ namespace login
             return updateQuery;
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+           
     }
 }

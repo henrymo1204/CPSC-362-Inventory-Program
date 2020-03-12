@@ -17,13 +17,27 @@ namespace login
         SqlConnection sqlcon = null;
         int count = 0;
 
-        public FormDeleteSupplier()
+        public FormDeleteSupplier(FormMain form)
         {
             InitializeComponent();
             Connection open = new Connection();
             this.sqlcon = open.connect();
             update_combobox();//initilize combobox
             update();
+        }
+
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler;
+
+        public class UpdateEventArgs : EventArgs
+        {
+            public string Data { get; set; }
+        }
+
+        protected void update_main_form()//update gridview in main form
+        {
+            UpdateEventArgs args = new UpdateEventArgs();//create new update event args object
+            UpdateEventHandler.Invoke(this, args);
         }
 
         private void update_combobox()//refresh combobox
@@ -59,10 +73,13 @@ namespace login
             sqlcon.Open();
             SqlCommand query = new SqlCommand("DELETE FROM Supplier WHERE SupplierID = @SupplierID", sqlcon);
             SqlCommand query1 = new SqlCommand("SELECT SupplierID FROM Supplier WHERE SupplierName = '" + comboBox1.SelectedItem + "';", sqlcon);
+            SqlCommand query2 = new SqlCommand("DELETE FROM Product WHERE SupplierID = @SupplierID", sqlcon);
             SqlDataReader read = query1.ExecuteReader();
             read.Read();
             string output = read.GetString(0);
             read.Close();
+            query2.Parameters.AddWithValue("@SupplierID", output);
+            query2.ExecuteNonQuery();
             query.Parameters.AddWithValue("@SupplierID", output);
             query.ExecuteNonQuery();
             sqlcon.Close();
@@ -70,6 +87,7 @@ namespace login
             update_combobox();
             comboBox1.Text = string.Empty;
             update();
+            update_main_form();
         }
 
         private void button2_Click(object sender, EventArgs e)

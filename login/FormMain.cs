@@ -76,7 +76,13 @@ namespace login
         {
             dataGridView1.DataSource = Source();//fill grid view with data table from source() function
         }
+
         private void Form4_UpdateEventHandler(object sender, FormDeleteProduct.UpdateEventArgs args)
+        {
+            dataGridView1.DataSource = Source();//fill grid view with data table from source() function
+        }
+
+        private void FormDeleteSupplier_UpdateEventHandler(object sender, FormDeleteSupplier.UpdateEventArgs args)
         {
             dataGridView1.DataSource = Source();//fill grid view with data table from source() function
         }
@@ -103,7 +109,8 @@ namespace login
 
         private void deleteSupplierToolStripMenuItem_Click(object sender, EventArgs e)//open delete supplier form
         {
-            FormDeleteSupplier form = new FormDeleteSupplier();//create delete supplier form object
+            FormDeleteSupplier form = new FormDeleteSupplier(this);//create delete supplier form object
+            form.UpdateEventHandler += FormDeleteSupplier_UpdateEventHandler;
             form.ShowDialog();//show delete supplier form 
         }
 
