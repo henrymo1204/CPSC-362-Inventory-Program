@@ -41,15 +41,14 @@ namespace login
             {
                 sqlcon.Open();//open database
                 string output = query.ExecuteScalar().ToString();//set output to value output from executeing the query
-                SqlCommand query1 = new SqlCommand("SELECT ProductBrand FROM Product WHERE ProductID = @ProductID", sqlcon);//get product brand from product entity
+                SqlCommand query1 = new SqlCommand("SELECT ProductBrand, ProductName, Quantity FROM Product WHERE ProductID = @ProductID", sqlcon);//get product brand from product entity
                 query1.Parameters.AddWithValue("@ProductID", output);//set product id to text in value in output
-                SqlCommand query2 = new SqlCommand("SELECT ProductName FROM Product WHERE ProductID = @ProductID", sqlcon);//get product name from product entity
-                query2.Parameters.AddWithValue("@ProductID", output);//set product id to text in value in output
-                SqlCommand query3 = new SqlCommand("SELECT Quantity FROM Product WHERE ProductID = @ProductID", sqlcon);//get quantity from product entity
-                query3.Parameters.AddWithValue("@ProductID", output);//set product id to text in value in output
-                string brand = query1.ExecuteScalar().ToString();//set brand to value output from executing the query
-                string name = query2.ExecuteScalar().ToString();//set name to value output from executing the query
-                string quantity = query3.ExecuteScalar().ToString();//set quantity to value output from executing the query
+                SqlDataReader read = query1.ExecuteReader();
+                read.Read();
+                string brand = read.GetString(0);//set brand to value output from executing the query
+                string name = read.GetString(1);//set name to value output from executing the query
+                string quantity = read.GetString(2);//set quantity to value output from executing the query
+                read.Close();
                 MessageBox.Show("Product " + output + " " + brand + " " + name + " has " + quantity + " in stock.");//show message box
                 sqlcon.Close();//close database
             }

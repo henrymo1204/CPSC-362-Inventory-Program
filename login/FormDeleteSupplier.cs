@@ -23,6 +23,7 @@ namespace login
             Connection open = new Connection();
             this.sqlcon = open.connect();
             update_combobox();//initilize combobox
+            update();
         }
 
         private void update_combobox()//refresh combobox
@@ -42,6 +43,17 @@ namespace login
             sqlcon.Close();
         }
 
+        public void update()
+        {
+            sqlcon.Open();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Supplier;", sqlcon);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Supplier");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Supplier";
+            sqlcon.Close();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             sqlcon.Open();
@@ -57,6 +69,7 @@ namespace login
             MessageBox.Show("Supplier Deleted.");
             update_combobox();
             comboBox1.Text = string.Empty;
+            update();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,5 +77,11 @@ namespace login
             Close();
         }
 
+        private void FormDeleteSupplier_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'loginDataSet.Supplier' table. You can move, or remove it, as needed.
+            this.supplierTableAdapter.Fill(this.loginDataSet.Supplier);
+
+        }
     }
 }

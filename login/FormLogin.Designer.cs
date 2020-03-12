@@ -61,7 +61,7 @@
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(267, 172);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(332, 22);
             this.txtUsername.TabIndex = 1;
@@ -70,8 +70,8 @@
             // 
             this.login_button.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.login_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_button.Location = new System.Drawing.Point(200, 345);
-            this.login_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.login_button.Location = new System.Drawing.Point(201, 345);
+            this.login_button.Margin = new System.Windows.Forms.Padding(4);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(113, 49);
             this.login_button.TabIndex = 3;
@@ -84,7 +84,7 @@
             this.exit_button.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.exit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exit_button.Location = new System.Drawing.Point(427, 345);
-            this.exit_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exit_button.Margin = new System.Windows.Forms.Padding(4);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(113, 49);
             this.exit_button.TabIndex = 4;
@@ -95,7 +95,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(267, 246);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(332, 22);
@@ -113,7 +113,7 @@
             this.Controls.Add(this.password_label);
             this.Controls.Add(this.username_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Form1";
             this.ResumeLayout(false);

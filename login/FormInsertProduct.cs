@@ -113,5 +113,6 @@ namespace login
             // TODO: This line of code loads data into the 'loginDataSet.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.loginDataSet.Product);
         }
+
     }
 }

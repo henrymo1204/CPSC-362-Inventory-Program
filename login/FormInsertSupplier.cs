@@ -23,6 +23,7 @@ namespace login
             Connection open = new Connection();// create a connection object
             this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
             update();
+            update_id();
         }
 
         public void update()
@@ -34,6 +35,18 @@ namespace login
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Supplier";
             sqlcon.Close();
+        }
+
+        private void update_id()//auto increment product id
+        {
+            sqlcon.Open();//open database
+            SqlCommand query = new SqlCommand("SELECT MAX(SupplierID) FROM Supplier;", sqlcon);//get the highest product id from Product enyity
+            string output = query.ExecuteScalar().ToString();//set output to value output from executed query
+            sqlcon.Close();//close database
+            int id = Int32.Parse(output);//convert output to integer and set it to id
+            id++;//increment id
+            output = id.ToString().PadLeft(4, '0');//set output to id
+            textBox1.Text = output.ToString();//put output in textbox1
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -49,7 +62,7 @@ namespace login
             MessageBox.Show("Supplier " + textBox1.Text + " inserted.");
             update();
             //update gridview in form2
-            textBox1.Text = String.Empty;
+            update_id();
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
             textBox4.Text = String.Empty;

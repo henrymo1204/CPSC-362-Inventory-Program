@@ -49,18 +49,26 @@ namespace login
                 sqlcon.Open();//open database
                 SqlCommand query = new SqlCommand("SELECT password FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
                 query.Parameters.AddWithValue("username", txtUsername.Text);//set username to look for to user input username
-                string output = query.ExecuteScalar().ToString();//set output to value output from executing the query
-                if (txtPassword.Text == output)//compare user input password to the password in database
-                {//if they are the same
-                    FormMain form = new FormMain();//create main form object
-                    this.Hide();//hide current form
-                    form.Show();//show main form
+                try
+                {
+                    string output = query.ExecuteScalar().ToString();//set output to value output from executing the query
+                    if (txtPassword.Text == output)//compare user input password to the password in database
+                    {//if they are the same
+                        FormMain form = new FormMain();//create main form object
+                        this.Hide();//hide current form
+                        form.Show();//show main form
+                    }
+                    else
+                    {//if they are not the same
+                        MessageBox.Show("Invalid password!");//shows a message box that tells the user "Invalid Username and Password!"
+                    }
+                    sqlcon.Close();//close database
                 }
-                else
-                {//if they are not the same
-                    MessageBox.Show("Invalid Username and Password!");//shows a message box that tells the user "Invalid Username and Password!"
+                catch
+                {
+                    MessageBox.Show("Username not found.");
+                    sqlcon.Close();//close database
                 }
-                sqlcon.Close();//close database
             }
         }
     }
