@@ -149,5 +149,11 @@ namespace login
             FormViewAccounts form = new FormViewAccounts(); //create view accounts
             form.ShowDialog(); //show view account form
         }
+
+        private void insertShippingInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormInsertShippingInfomation form = new FormInsertShippingInfomation();
+            form.ShowDialog();
+        }
     }
 }

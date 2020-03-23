@@ -27,7 +27,7 @@ namespace login
         {
             // TODO: This line of code loads data into the 'loginDataSet.Login' table. You can move, or remove it, as needed.
             this.loginTableAdapter.Fill(this.loginDataSet.Login);
-            loginGrid.DataSource = Source(); //fill grid view with data table from source() function
+            loginGrid.DataSource = Source();
         }
 
         private DataTable dt = new DataTable();//data table object

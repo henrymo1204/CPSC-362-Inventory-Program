@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.loginGrid = new System.Windows.Forms.DataGridView();
+            this.loginDataSet = new login.LoginDataSet();
+            this.loginTableAdapter = new login.LoginDataSetTableAdapters.LoginTableAdapter();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.loginIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usergroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataSet = new login.LoginDataSet();
-            this.loginTableAdapter = new login.LoginDataSetTableAdapters.LoginTableAdapter();
-            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.loginGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // loginGrid
@@ -60,6 +60,31 @@
             this.loginGrid.ReadOnly = true;
             this.loginGrid.Size = new System.Drawing.Size(446, 237);
             this.loginGrid.TabIndex = 0;
+            // 
+            // loginDataSet
+            // 
+            this.loginDataSet.DataSetName = "LoginDataSet";
+            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // loginTableAdapter
+            // 
+            this.loginTableAdapter.ClearBeforeFill = true;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(193, 321);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(126, 65);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // loginBindingSource
+            // 
+            this.loginBindingSource.DataMember = "Login";
+            this.loginBindingSource.DataSource = this.loginDataSet;
             // 
             // loginIDDataGridViewTextBoxColumn
             // 
@@ -89,31 +114,6 @@
             this.usergroupDataGridViewTextBoxColumn.Name = "usergroupDataGridViewTextBoxColumn";
             this.usergroupDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // loginBindingSource
-            // 
-            this.loginBindingSource.DataMember = "Login";
-            this.loginBindingSource.DataSource = this.loginDataSet;
-            // 
-            // loginDataSet
-            // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // loginTableAdapter
-            // 
-            this.loginTableAdapter.ClearBeforeFill = true;
-            // 
-            // exitButton
-            // 
-            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(193, 321);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(126, 65);
-            this.exitButton.TabIndex = 1;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
             // FormViewAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,8 +125,8 @@
             this.Text = "FormViewAccounts";
             this.Load += new System.EventHandler(this.FormViewAccounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.loginGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,12 +135,12 @@
 
         private System.Windows.Forms.DataGridView loginGrid;
         private LoginDataSet loginDataSet;
-        private System.Windows.Forms.BindingSource loginBindingSource;
         private LoginDataSetTableAdapters.LoginTableAdapter loginTableAdapter;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usergroupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.BindingSource loginBindingSource;
     }
 }

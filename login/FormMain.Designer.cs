@@ -56,10 +56,11 @@
             this.adminTab = new System.Windows.Forms.ToolStripMenuItem();
             this.createAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.productTableAdapter = new login.LoginDataSetTableAdapters.ProductTableAdapter();
-            this.viewUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertShippingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -205,7 +206,8 @@
             // 
             this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.insertProductToolStripMenuItem,
-            this.insertSupplierToolStripMenuItem});
+            this.insertSupplierToolStripMenuItem,
+            this.insertShippingInformationToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
             this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.insertToolStripMenuItem.Text = "Insert";
@@ -213,14 +215,14 @@
             // insertProductToolStripMenuItem
             // 
             this.insertProductToolStripMenuItem.Name = "insertProductToolStripMenuItem";
-            this.insertProductToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.insertProductToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.insertProductToolStripMenuItem.Text = "Insert Product";
             this.insertProductToolStripMenuItem.Click += new System.EventHandler(this.insertProductToolStripMenuItem_Click);
             // 
             // insertSupplierToolStripMenuItem
             // 
             this.insertSupplierToolStripMenuItem.Name = "insertSupplierToolStripMenuItem";
-            this.insertSupplierToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.insertSupplierToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.insertSupplierToolStripMenuItem.Text = "Insert Supplier";
             this.insertSupplierToolStripMenuItem.Click += new System.EventHandler(this.insertSupplierToolStripMenuItem_Click);
             // 
@@ -284,16 +286,23 @@
             // createAccountToolStripMenuItem
             // 
             this.createAccountToolStripMenuItem.Name = "createAccountToolStripMenuItem";
-            this.createAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createAccountToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.createAccountToolStripMenuItem.Text = "Create Account";
             this.createAccountToolStripMenuItem.Click += new System.EventHandler(this.createAccountToolStripMenuItem_Click);
             // 
             // deleteAccountToolStripMenuItem
             // 
             this.deleteAccountToolStripMenuItem.Name = "deleteAccountToolStripMenuItem";
-            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.deleteAccountToolStripMenuItem.Text = "Delete Account";
             this.deleteAccountToolStripMenuItem.Click += new System.EventHandler(this.deleteAccountToolStripMenuItem_Click);
+            // 
+            // viewUsersToolStripMenuItem
+            // 
+            this.viewUsersToolStripMenuItem.Name = "viewUsersToolStripMenuItem";
+            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.viewUsersToolStripMenuItem.Text = "View Users";
+            this.viewUsersToolStripMenuItem.Click += new System.EventHandler(this.viewUsersToolStripMenuItem_Click);
             // 
             // button2
             // 
@@ -323,12 +332,12 @@
             // 
             this.productTableAdapter.ClearBeforeFill = true;
             // 
-            // viewUsersToolStripMenuItem
+            // insertShippingInformationToolStripMenuItem
             // 
-            this.viewUsersToolStripMenuItem.Name = "viewUsersToolStripMenuItem";
-            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewUsersToolStripMenuItem.Text = "View Users";
-            this.viewUsersToolStripMenuItem.Click += new System.EventHandler(this.viewUsersToolStripMenuItem_Click);
+            this.insertShippingInformationToolStripMenuItem.Name = "insertShippingInformationToolStripMenuItem";
+            this.insertShippingInformationToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.insertShippingInformationToolStripMenuItem.Text = "Insert Shipping Information";
+            this.insertShippingInformationToolStripMenuItem.Click += new System.EventHandler(this.insertShippingInformationToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -387,5 +396,6 @@
         private System.Windows.Forms.ToolStripMenuItem createAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUsersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertShippingInformationToolStripMenuItem;
     }
 }

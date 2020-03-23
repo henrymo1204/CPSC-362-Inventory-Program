@@ -79,6 +79,12 @@
     <Compile Include="FormDeleteAccount.Designer.cs">
       <DependentUpon>FormDeleteAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInsertShippingInfomation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertShippingInfomation.Designer.cs">
+      <DependentUpon>FormInsertShippingInfomation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteAccount.resx">
       <DependentUpon>FormDeleteAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertShippingInfomation.resx">
+      <DependentUpon>FormInsertShippingInfomation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

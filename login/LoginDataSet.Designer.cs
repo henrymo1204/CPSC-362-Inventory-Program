@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System.IO;
+
 namespace login {
     
     
@@ -4327,8 +4329,11 @@ SELECT loginID, Username, Password, Usergroup FROM Login WHERE (loginID = @login
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jwgar\\Desktop\\362" +
-                "\\CPSC-362-Inventory-Program\\login\\bin\\Debug\\Login.mdf;Integrated Security=True;C" +
+            string currentDirectory = Directory.GetCurrentDirectory();//gets the directory of the project file
+            string path = Path.Combine(currentDirectory, "bin");//combine the project direcory with /bin
+            path = Path.Combine(currentDirectory, "Debug");//combine the updated project directory with /Debug
+            path = Path.Combine(currentDirectory, "Login.mdf");//combine the updated project direcotry with /Login.mdf
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True;C" +
                 "onnect Timeout=30";
         }
         
