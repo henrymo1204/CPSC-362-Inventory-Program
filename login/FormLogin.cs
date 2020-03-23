@@ -47,14 +47,27 @@ namespace login
             else//if user did input both username and password
             {
                 sqlcon.Open();//open database
-                SqlCommand query = new SqlCommand("SELECT password FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
+                SqlCommand query = new SqlCommand("SELECT password, usergroup FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
                 query.Parameters.AddWithValue("username", txtUsername.Text);//set username to look for to user input username
+                
+                SqlDataReader read = query.ExecuteReader();//execute query and store values to data reader
+                
                 try
                 {
-                    string output = query.ExecuteScalar().ToString();//set output to value output from executing the query
-                    if (txtPassword.Text == output)//compare user input password to the password in database
+                    string pw = "";
+                    string group = "";
+                    while (read.Read())
+                    {
+                        pw = read.GetString(0); //set output to value output from executing the query
+                        group = read.GetString(1); //get user group
+                    }
+
+                    if (txtPassword.Text == pw)//compare user input password to the password in database
                     {//if they are the same
-                        FormMain form = new FormMain();//create main form object
+                        User user = new User();
+                        user.Group = group; //keep track of user group
+
+                        FormMain form = new FormMain(user);//create main form object
                         this.Hide();//hide current form
                         form.Show();//show main form
                     }

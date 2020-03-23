@@ -15,11 +15,16 @@ namespace login
     public partial class FormMain : Form
     {
 
-        SqlConnection sqlcon = null;//sql connection variable
+        SqlConnection sqlcon = null;//sql connection object
+        User user; //user object
 
-        public FormMain()
+        public FormMain(User u)
         {
             InitializeComponent();
+            user = u;
+            if (u.Group == "Admin")
+                adminTab.Visible = true;
+
             Connection open = new Connection();//create a connection object
             this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
         }
@@ -125,6 +130,24 @@ namespace login
         {
             FormUpdateSupplier form = new FormUpdateSupplier();//create update supplier form
             form.ShowDialog();//show update supplier form
+        }
+
+        private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateAccount form = new FormCreateAccount();//create create account form
+            form.ShowDialog();//show create account form
+        }
+
+        private void deleteAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDeleteAccount form = new FormDeleteAccount(); //create delete account form
+            form.ShowDialog(); //show delete account form
+        }
+
+        private void viewUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormViewAccounts form = new FormViewAccounts(); //create view accounts
+            form.ShowDialog(); //show view account form
         }
     }
 }
