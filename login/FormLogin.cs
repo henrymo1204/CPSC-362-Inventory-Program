@@ -47,29 +47,41 @@ namespace login
             else//if user did input both username and password
             {
                 sqlcon.Open();//open database
-                SqlCommand query = new SqlCommand("SELECT password, usergroup FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
+                SqlCommand query = new SqlCommand("SELECT * FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
                 query.Parameters.AddWithValue("username", txtUsername.Text);//set username to look for to user input username
                 
                 SqlDataReader read = query.ExecuteReader();//execute query and store values to data reader
                 
                 try
                 {
+                    string id = "";
                     string pw = "";
                     string group = "";
                     while (read.Read())
                     {
-                        pw = read.GetString(0); //set output to value output from executing the query
-                        group = read.GetString(1); //get user group
+                        id = read.GetString(0);
+                        pw = read.GetString(2); //set output to value output from executing the query
+                        group = read.GetString(3); //get user group
                     }
 
                     if (txtPassword.Text == pw)//compare user input password to the password in database
                     {//if they are the same
                         User user = new User();
+                        user.UserID = id;
                         user.Group = group; //keep track of user group
 
-                        FormMain form = new FormMain(user);//create main form object
-                        this.Hide();//hide current form
-                        form.Show();//show main form
+                        if(group == "Admin" || group == "Clerk")
+                        {
+                            FormMain form = new FormMain(user);//create main form object
+                            this.Hide();//hide current form
+                            form.Show();//show main form
+                        }
+                        else if(group == "Client")
+                        {
+                            FormOrder form = new FormOrder(user);//create main form object
+                            this.Hide();//hide current form
+                            form.Show();//show main form
+                        }
                     }
                     else
                     {//if they are not the same

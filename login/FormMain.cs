@@ -155,5 +155,11 @@ namespace login
             FormInsertShippingInfomation form = new FormInsertShippingInfomation();
             form.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormProductBarcode form = new FormProductBarcode();
+            form.ShowDialog();
+        }
     }
 }

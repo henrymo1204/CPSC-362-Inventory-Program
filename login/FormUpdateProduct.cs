@@ -70,7 +70,7 @@ namespace login
                 MessageBox.Show("Please select a Product ID.");
             }
             else if (String.IsNullOrEmpty(brandBox.Text) && String.IsNullOrEmpty(nameBox.Text) && String.IsNullOrEmpty(priceBox.Text) &&
-                String.IsNullOrEmpty(quantBox.Text) && String.IsNullOrEmpty(expBox.Text) && String.IsNullOrEmpty(locBox.Text) && comboBox1.SelectedIndex == -1)
+                String.IsNullOrEmpty(quantBox.Text) && String.IsNullOrEmpty(expBox.Text) && String.IsNullOrEmpty(locBox.Text) && String.IsNullOrEmpty(textBox1.Text) && comboBox1.SelectedIndex == -1)
             //make sure at least one update field is filled
             {
                 MessageBox.Show("Fill at least one field to update.");
@@ -89,6 +89,7 @@ namespace login
                 updateStr += update("quantity", quantBox.Text);
                 updateStr += update("expirationDate", expBox.Text);
                 updateStr += update("productLocation", locBox.Text);
+                updateStr += update("Barcode", textBox1.Text);
 
                 //update supplier from combobox
                 if (comboBox1.SelectedIndex > -1)//check if something is selected in combobox1
@@ -113,6 +114,7 @@ namespace login
                 quantBox.Text = String.Empty;
                 expBox.Text = String.Empty;
                 locBox.Text = String.Empty;
+                textBox1.Text = String.Empty;
                 comboBox1.SelectedIndex = -1;
 
                 sqlcon.Close();
@@ -138,7 +140,5 @@ namespace login
 
             return updateQuery;
         }
-
-           
     }
 }

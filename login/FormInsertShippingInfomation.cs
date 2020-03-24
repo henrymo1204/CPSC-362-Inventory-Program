@@ -40,17 +40,28 @@ namespace login
             sqlcon.Open();//open database
             SqlCommand query = new SqlCommand("SELECT MAX(ShippingID) FROM ShippingRecord;", sqlcon);//get the highest product id from Product enyity
             string output = query.ExecuteScalar().ToString();//set output to value output from executed query
-            sqlcon.Close();//close database
-            int id = Int32.Parse(output);//convert output to integer and set it to id
-            id++;//increment id
-            output = id.ToString().PadLeft(3, '0');//set output to id
-            textBox1.Text = output.ToString();//put output in textbox1
+            if (output == "")
+            {
+                textBox1.Text = "001";
+            }
+            else
+            {
+                sqlcon.Close();//close database
+                int id = Int32.Parse(output);//convert output to integer and set it to id
+                id++;//increment id
+                output = id.ToString().PadLeft(3, '0');//set output to id
+                textBox1.Text = output.ToString();//put output in textbox1
+            }
         }
 
         private string update_productid()//auto increment product id
         {
             SqlCommand query = new SqlCommand("SELECT MAX(IncomingProductID) FROM IncomingProduct;", sqlcon);//get the highest product id from Product enyity
             string output = query.ExecuteScalar().ToString();//set output to value output from executed query
+            if(output == "")
+            {
+                return "00001";
+            }
             int id = Int32.Parse(output);//convert output to integer and set it to id
             id++;//increment id
             output = id.ToString().PadLeft(5, '0');//set output to id

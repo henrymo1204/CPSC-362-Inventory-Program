@@ -76,6 +76,10 @@ namespace login
             SqlCommand query = new SqlCommand("SELECT MAX(LoginID) FROM Login;", sqlcon);//get the highest login id
             string output = query.ExecuteScalar().ToString();//set output to value output from executed query
             sqlcon.Close();//close database
+            if (output == "")
+            {
+                return 1;
+            }
             int id = Int32.Parse(output);//convert output to integer and set it to id
             id++;//increment id
             return id;

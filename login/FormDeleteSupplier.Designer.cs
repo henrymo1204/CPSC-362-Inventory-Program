@@ -34,26 +34,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.loginDataSet = new login.LoginDataSet();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierTableAdapter = new login.LoginDataSetTableAdapters.SupplierTableAdapter();
             this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginDataSet = new login.LoginDataSet();
+            this.supplierTableAdapter = new login.LoginDataSetTableAdapters.SupplierTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(529, 37);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(397, 30);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 49);
+            this.button2.Size = new System.Drawing.Size(85, 40);
             this.button2.TabIndex = 7;
             this.button2.Text = "Exit";
             this.button2.UseVisualStyleBackColor = true;
@@ -63,10 +62,9 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(387, 37);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(290, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 49);
+            this.button1.Size = new System.Drawing.Size(85, 40);
             this.button1.TabIndex = 6;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = true;
@@ -76,10 +74,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(20, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 25);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Supplier Name";
             // 
@@ -87,10 +84,10 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(181, 48);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Location = new System.Drawing.Point(136, 39);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 24);
+            this.comboBox1.Size = new System.Drawing.Size(136, 21);
             this.comboBox1.TabIndex = 8;
             // 
             // dataGridView1
@@ -103,26 +100,13 @@
             this.supplierEmailDataGridViewTextBoxColumn,
             this.supplierPhoneNumberDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.supplierBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 126);
+            this.dataGridView1.Location = new System.Drawing.Point(37, 101);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(553, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(415, 222);
             this.dataGridView1.TabIndex = 11;
-            // 
-            // loginDataSet
-            // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataMember = "Supplier";
-            this.supplierBindingSource.DataSource = this.loginDataSet;
-            // 
-            // supplierTableAdapter
-            // 
-            this.supplierTableAdapter.ClearBeforeFill = true;
             // 
             // supplierIDDataGridViewTextBoxColumn
             // 
@@ -156,24 +140,37 @@
             this.supplierPhoneNumberDataGridViewTextBoxColumn.Name = "supplierPhoneNumberDataGridViewTextBoxColumn";
             this.supplierPhoneNumberDataGridViewTextBoxColumn.Width = 125;
             // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.loginDataSet;
+            // 
+            // loginDataSet
+            // 
+            this.loginDataSet.DataSetName = "LoginDataSet";
+            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
             // FormDeleteSupplier
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 442);
+            this.ClientSize = new System.Drawing.Size(506, 359);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormDeleteSupplier";
             this.Text = "Form6";
             this.Load += new System.EventHandler(this.FormDeleteSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

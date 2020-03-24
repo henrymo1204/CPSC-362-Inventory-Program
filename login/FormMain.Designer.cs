@@ -47,6 +47,7 @@
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertShippingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.productTableAdapter = new login.LoginDataSetTableAdapters.ProductTableAdapter();
-            this.insertShippingInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -70,8 +71,8 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(19, 42);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(22, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 60);
             this.button1.TabIndex = 1;
@@ -98,7 +99,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 386);
+            this.dataGridView1.Size = new System.Drawing.Size(1034, 386);
             this.dataGridView1.TabIndex = 6;
             // 
             // productIDDataGridViewTextBoxColumn
@@ -198,7 +199,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(995, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1170, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -226,6 +227,13 @@
             this.insertSupplierToolStripMenuItem.Text = "Insert Supplier";
             this.insertSupplierToolStripMenuItem.Click += new System.EventHandler(this.insertSupplierToolStripMenuItem_Click);
             // 
+            // insertShippingInformationToolStripMenuItem
+            // 
+            this.insertShippingInformationToolStripMenuItem.Name = "insertShippingInformationToolStripMenuItem";
+            this.insertShippingInformationToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.insertShippingInformationToolStripMenuItem.Text = "Insert Shipping Information";
+            this.insertShippingInformationToolStripMenuItem.Click += new System.EventHandler(this.insertShippingInformationToolStripMenuItem_Click);
+            // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -238,14 +246,14 @@
             // deleteProductToolStripMenuItem
             // 
             this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteProductToolStripMenuItem.Text = "Delete Product";
             this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
             // 
             // deleteSupplierToolStripMenuItem
             // 
             this.deleteSupplierToolStripMenuItem.Name = "deleteSupplierToolStripMenuItem";
-            this.deleteSupplierToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.deleteSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteSupplierToolStripMenuItem.Text = "Delete Supplier";
             this.deleteSupplierToolStripMenuItem.Click += new System.EventHandler(this.deleteSupplierToolStripMenuItem_Click);
             // 
@@ -261,14 +269,14 @@
             // updateProductToolStripMenuItem
             // 
             this.updateProductToolStripMenuItem.Name = "updateProductToolStripMenuItem";
-            this.updateProductToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.updateProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateProductToolStripMenuItem.Text = "Update Product";
             this.updateProductToolStripMenuItem.Click += new System.EventHandler(this.updateProductToolStripMenuItem_Click);
             // 
             // updateSupplierToolStripMenuItem
             // 
             this.updateSupplierToolStripMenuItem.Name = "updateSupplierToolStripMenuItem";
-            this.updateSupplierToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.updateSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateSupplierToolStripMenuItem.Text = "Update Supplier";
             this.updateSupplierToolStripMenuItem.Click += new System.EventHandler(this.updateSupplierToolStripMenuItem_Click);
             // 
@@ -307,8 +315,8 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(19, 120);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(22, 119);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 60);
             this.button2.TabIndex = 2;
@@ -319,12 +327,12 @@
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(19, 198);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(22, 197);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 60);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Search Shipment Expected Arrival Time";
+            this.button3.Text = "Shipment Expected Arrival Time";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -332,18 +340,24 @@
             // 
             this.productTableAdapter.ClearBeforeFill = true;
             // 
-            // insertShippingInformationToolStripMenuItem
+            // button4
             // 
-            this.insertShippingInformationToolStripMenuItem.Name = "insertShippingInformationToolStripMenuItem";
-            this.insertShippingInformationToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.insertShippingInformationToolStripMenuItem.Text = "Insert Shipping Information";
-            this.insertShippingInformationToolStripMenuItem.Click += new System.EventHandler(this.insertShippingInformationToolStripMenuItem_Click);
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(22, 278);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(85, 56);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Product Barcode";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 440);
+            this.ClientSize = new System.Drawing.Size(1170, 440);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView1);
@@ -397,5 +411,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertShippingInformationToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
     }
 }

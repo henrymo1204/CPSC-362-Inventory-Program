@@ -43,10 +43,17 @@ namespace login
             SqlCommand query = new SqlCommand("SELECT MAX(SupplierID) FROM Supplier;", sqlcon);//get the highest product id from Product enyity
             string output = query.ExecuteScalar().ToString();//set output to value output from executed query
             sqlcon.Close();//close database
-            int id = Int32.Parse(output);//convert output to integer and set it to id
-            id++;//increment id
-            output = id.ToString().PadLeft(4, '0');//set output to id
-            textBox1.Text = output.ToString();//put output in textbox1
+            if(output == "")
+            {
+                textBox1.Text = "0001";
+            }
+            else
+            {
+                int id = Int32.Parse(output);//convert output to integer and set it to id
+                id++;//increment id
+                output = id.ToString().PadLeft(4, '0');//set output to id
+                textBox1.Text = output.ToString();//put output in textbox1
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
