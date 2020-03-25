@@ -40,13 +40,13 @@ namespace login
             sqlcon.Open();//open database
             SqlCommand query = new SqlCommand("SELECT MAX(ShippingID) FROM ShippingRecord;", sqlcon);//get the highest product id from Product enyity
             string output = query.ExecuteScalar().ToString();//set output to value output from executed query
-            if (output == "")
+            sqlcon.Close();//close database
+            if(output == "")
             {
                 textBox1.Text = "001";
             }
             else
             {
-                sqlcon.Close();//close database
                 int id = Int32.Parse(output);//convert output to integer and set it to id
                 id++;//increment id
                 output = id.ToString().PadLeft(3, '0');//set output to id
@@ -161,6 +161,11 @@ namespace login
                     MessageBox.Show("Supplier not selected!");//show message box
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
