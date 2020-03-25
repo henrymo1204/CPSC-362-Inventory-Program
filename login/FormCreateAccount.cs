@@ -26,6 +26,7 @@ namespace login
             groupCombo.Items.Add("Admin"); //fill combo box
             groupCombo.Items.Add("Clerk");
             groupCombo.Items.Add("Client");
+            groupCombo.Items.Add("Stocker");
         }
 
         private void createButton_Click(object sender, EventArgs e)

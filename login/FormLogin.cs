@@ -70,7 +70,7 @@ namespace login
                         user.UserID = id;
                         user.Group = group; //keep track of user group
 
-                        if(user.Group == "Admin" || user.Group == "Clerk")
+                        if(user.Group == "Admin" || user.Group == "Clerk" || user.Group == "Stocker")
                         {
                             FormMain form = new FormMain(user);//create main form object
                             this.Hide();//hide current form

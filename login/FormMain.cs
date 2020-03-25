@@ -24,6 +24,12 @@ namespace login
             user = u;
             if (u.Group == "Admin")
                 adminTab.Visible = true;
+            else if (u.Group == "Stocker")
+            {
+                insertToolStripMenuItem.Visible = false;
+                deleteToolStripMenuItem.Visible = false;
+                updateToolStripMenuItem.Visible = false;
+            }
 
             Connection open = new Connection();//create a connection object
             this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
