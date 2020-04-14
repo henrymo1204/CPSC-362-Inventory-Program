@@ -47,6 +47,7 @@
             // 
             this.userLabel.AutoSize = true;
             this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.ForeColor = System.Drawing.Color.White;
             this.userLabel.Location = new System.Drawing.Point(42, 57);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(43, 20);
@@ -79,6 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(275, 238);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteButton);

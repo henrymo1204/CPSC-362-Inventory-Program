@@ -190,6 +190,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.insertToolStripMenuItem,
@@ -199,6 +200,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip1.Size = new System.Drawing.Size(1170, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
@@ -215,6 +217,8 @@
             // 
             // insertProductToolStripMenuItem
             // 
+            this.insertProductToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.insertProductToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.insertProductToolStripMenuItem.Name = "insertProductToolStripMenuItem";
             this.insertProductToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.insertProductToolStripMenuItem.Text = "Insert Product";
@@ -246,14 +250,14 @@
             // deleteProductToolStripMenuItem
             // 
             this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.deleteProductToolStripMenuItem.Text = "Delete Product";
             this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
             // 
             // deleteSupplierToolStripMenuItem
             // 
             this.deleteSupplierToolStripMenuItem.Name = "deleteSupplierToolStripMenuItem";
-            this.deleteSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteSupplierToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.deleteSupplierToolStripMenuItem.Text = "Delete Supplier";
             this.deleteSupplierToolStripMenuItem.Click += new System.EventHandler(this.deleteSupplierToolStripMenuItem_Click);
             // 
@@ -269,14 +273,14 @@
             // updateProductToolStripMenuItem
             // 
             this.updateProductToolStripMenuItem.Name = "updateProductToolStripMenuItem";
-            this.updateProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateProductToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.updateProductToolStripMenuItem.Text = "Update Product";
             this.updateProductToolStripMenuItem.Click += new System.EventHandler(this.updateProductToolStripMenuItem_Click);
             // 
             // updateSupplierToolStripMenuItem
             // 
             this.updateSupplierToolStripMenuItem.Name = "updateSupplierToolStripMenuItem";
-            this.updateSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateSupplierToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.updateSupplierToolStripMenuItem.Text = "Update Supplier";
             this.updateSupplierToolStripMenuItem.Click += new System.EventHandler(this.updateSupplierToolStripMenuItem_Click);
             // 
@@ -356,6 +360,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1170, 440);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

@@ -167,5 +167,6 @@ namespace login
             FormProductBarcode form = new FormProductBarcode();
             form.ShowDialog();
         }
+
     }
 }

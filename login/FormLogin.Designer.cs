@@ -40,6 +40,7 @@
             // 
             this.username_label.AutoSize = true;
             this.username_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_label.ForeColor = System.Drawing.Color.White;
             this.username_label.Location = new System.Drawing.Point(100, 140);
             this.username_label.Name = "username_label";
             this.username_label.Size = new System.Drawing.Size(83, 20);
@@ -50,6 +51,7 @@
             // 
             this.password_label.AutoSize = true;
             this.password_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_label.ForeColor = System.Drawing.Color.White;
             this.password_label.Location = new System.Drawing.Point(100, 200);
             this.password_label.Name = "password_label";
             this.password_label.Size = new System.Drawing.Size(78, 20);
@@ -99,6 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(554, 411);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.exit_button);
