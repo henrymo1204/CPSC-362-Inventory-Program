@@ -17,6 +17,9 @@ namespace login
 
         SqlConnection sqlcon = null;//sql connection variable
         User user;
+        ComboBox combo;
+        double total = 0;
+        int rowIndex;
 
         public FormOrder(User u)
         {
@@ -31,18 +34,15 @@ namespace login
             // TODO: This line of code loads data into the 'loginDataSet.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.loginDataSet.Product);
 
-            DataGridViewComboBoxColumn box = new DataGridViewComboBoxColumn();
-            box.Name = "Quantity";
-            box.HeaderText = "Quantity";
-            box.Items.Add(" ");
+            Quantity.Items.Add(" ");
             for(int i = 0; i < 10; i++)
             {
                 int num = i + 1;
                 string temp = num.ToString();
-                box.Items.Add(temp);
+                Quantity.Items.Add(temp);
             }
-            dataGridView1.Columns.Add(box);
         }
+
 
         private string update_orderid()//auto increment product id
         {
@@ -129,9 +129,33 @@ namespace login
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
+            combo = e.Control as ComboBox;
+            if (combo != null){
+                rowIndex = dataGridView1.CurrentCell.RowIndex;
+                combo.SelectedIndexChanged -= new EventHandler(combo_SelectedIndexChanged);
 
+                combo.SelectedIndexChanged += combo_SelectedIndexChanged;
+            }
+        }
+
+        private void combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if(row.Cells[4].Value != null)
+                {
+                    if(row.Cells[4].Value.ToString() != " ")
+                    {
+                        total += Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[3].Value);
+                    }
+                }
+            }
+            double selected = Convert.ToDouble((sender as ComboBox).SelectedIndex);
+            total += selected * Convert.ToDouble(dataGridView1.Rows[rowIndex].Cells[3].Value);
+            label1.Text = "$" + total;
+            total = 0;
         }
     }
 }
