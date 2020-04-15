@@ -18,7 +18,7 @@ namespace login.classes
             path = Path.Combine(currentDirectory, "Debug");//combine the updated project directory with /Debug
             path = Path.Combine(currentDirectory, "Login.mdf");//combine the updated project direcotry with /Login.mdf
             //final project directory = project directory on ur device\login\bin\Login.mdf
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True;Connect Timeout=30";//connection string
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true;";//connection string
             SqlConnection sqlcon = new SqlConnection(connectionString);//create a new sql connection with connection string
 
             return sqlcon;//return sql conneciton object

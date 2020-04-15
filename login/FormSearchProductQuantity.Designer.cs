@@ -83,7 +83,7 @@
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(135, 50);
             this.comboBox1.Name = "comboBox1";

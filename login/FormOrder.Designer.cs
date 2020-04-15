@@ -41,6 +41,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -57,7 +59,7 @@
             this.priceDataGridViewTextBoxColumn,
             this.Quantity});
             this.dataGridView1.DataSource = this.productBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(229, 22);
+            this.dataGridView1.Location = new System.Drawing.Point(130, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(543, 343);
             this.dataGridView1.TabIndex = 0;
@@ -110,7 +112,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(664, 426);
+            this.button1.Location = new System.Drawing.Point(565, 426);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 36);
             this.button1.TabIndex = 1;
@@ -123,7 +125,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(613, 384);
+            this.label2.Location = new System.Drawing.Point(514, 384);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 20);
             this.label2.TabIndex = 3;
@@ -134,18 +136,41 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(719, 384);
+            this.label1.Location = new System.Drawing.Point(620, 384);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = " $0.00";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(20, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 60);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Account";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(20, 100);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(85, 60);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Order History";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(804, 526);
+            this.ClientSize = new System.Drawing.Size(695, 484);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -175,5 +200,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn Quantity;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

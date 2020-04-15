@@ -31,7 +31,7 @@ namespace login
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            SqlCommand query = new SqlCommand("INSERT INTO Login VALUES (@loginID, @Username, @Password, @Usergroup);", sqlcon);//insert product into database
+            SqlCommand query;
             if (string.IsNullOrEmpty(usernameBox.Text) || string.IsNullOrEmpty(passwordBox.Text))//check if any of the text box is empty
             {
                 MessageBox.Show("Need more information!");//show message
@@ -42,23 +42,57 @@ namespace login
             }
             else
             {
-                //get vals from text boxes
-                query.Parameters.AddWithValue("@LoginID", get_id());
-                query.Parameters.AddWithValue("@Username", usernameBox.Text);
-                query.Parameters.AddWithValue("@Password", passwordBox.Text);
-                query.Parameters.AddWithValue("@Usergroup", groupCombo.SelectedItem);
-
                 if (groupCombo.SelectedIndex > -1)//check if something is selected in groupCombo
                 {//if true
-                    sqlcon.Open();//open database
-                    query.ExecuteNonQuery();//execute query
-                    MessageBox.Show("User " + usernameBox.Text + " inserted.");//show message box   
-                    sqlcon.Close();//close database
+                    if (groupCombo.SelectedItem.ToString() == "Client")
+                    {
+                        if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text))
+                        {
+                            MessageBox.Show("Need more information from client!");
+                        }
+                        else
+                        {
+                            query = new SqlCommand("INSERT INTO Login VALUES (@loginID, @Username, @Password, @Usergroup, @PhoneNumber, @EMail, @Address);", sqlcon);//insert user into database
+                            //get vals from text boxes
+                            query.Parameters.AddWithValue("@LoginID", get_id());
+                            query.Parameters.AddWithValue("@Username", usernameBox.Text);
+                            query.Parameters.AddWithValue("@Password", passwordBox.Text);
+                            query.Parameters.AddWithValue("@Usergroup", groupCombo.SelectedItem);
+                            query.Parameters.AddWithValue("@PhoneNumber", textBox1.Text);
+                            query.Parameters.AddWithValue("@EMail", textBox2.Text);
+                            query.Parameters.AddWithValue("@Address", textBox3.Text);
+                            sqlcon.Open();//open database
+                            query.ExecuteNonQuery();//execute query
+                            MessageBox.Show("User " + usernameBox.Text + " inserted.");//show message box   
+                            sqlcon.Close();//close database
 
-                    usernameBox.Text = String.Empty;//empty textbox2
-                    passwordBox.Text = String.Empty;//empty textbox3
+                            usernameBox.Text = String.Empty;//empty textbox2
+                            passwordBox.Text = String.Empty;//empty textbox3
 
-                    groupCombo.SelectedIndex = -1;//reset combobox1
+                            groupCombo.SelectedIndex = -1;//reset combobox1
+                            textBox1.Text = String.Empty;
+                            textBox2.Text = String.Empty;
+                            textBox3.Text = String.Empty;
+                        }
+                    }
+                    else
+                    {
+                        query = new SqlCommand("INSERT INTO Login (loginID, Username, Password, Usergroup) VALUES (@loginID, @Username, @Password, @Usergroup);", sqlcon);//insert user into database
+                        //get vals from text boxes
+                        query.Parameters.AddWithValue("@LoginID", get_id());
+                        query.Parameters.AddWithValue("@Username", usernameBox.Text);
+                        query.Parameters.AddWithValue("@Password", passwordBox.Text);
+                        query.Parameters.AddWithValue("@Usergroup", groupCombo.SelectedItem);
+                        sqlcon.Open();//open database
+                        query.ExecuteNonQuery();//execute query
+                        MessageBox.Show("User " + usernameBox.Text + " inserted.");//show message box   
+                        sqlcon.Close();//close database
+
+                        usernameBox.Text = String.Empty;//empty textbox2
+                        passwordBox.Text = String.Empty;//empty textbox3
+
+                        groupCombo.SelectedIndex = -1;//reset combobox1
+                    }
                 }
                 else
                 {//if false
@@ -100,6 +134,22 @@ namespace login
             sqlcon.Close();
 
             return name; //return bool
+        }
+
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

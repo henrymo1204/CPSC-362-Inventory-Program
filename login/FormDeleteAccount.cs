@@ -29,11 +29,40 @@ namespace login
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            SqlCommand query = new SqlCommand("DELETE FROM Login WHERE Username = @Username", sqlcon);//delete product from database
+            SqlCommand query = new SqlCommand("DELETE FROM Login WHERE Username = @Username;", sqlcon);//delete product from database
+            SqlCommand query1 = new SqlCommand("SELECT OrderID FROM OrderRecord WHERE loginID = @loginID;", sqlcon);
+            SqlCommand query2;
+            SqlCommand query3;
+            SqlCommand query4;
+            SqlCommand query5 = new SqlCommand("SELECT loginID FROM Login WHERE Username = @Username;", sqlcon);
    
             if (userCombo.SelectedIndex > -1)//check if something is selected in combobox1
             {//if true
                 sqlcon.Open();//open database
+                query5.Parameters.AddWithValue("@Username", userCombo.SelectedItem);
+                string id = query5.ExecuteScalar().ToString();
+                query1.Parameters.AddWithValue("@loginID", id);
+                SqlDataReader read1 = query1.ExecuteReader();
+                while (read1.Read())
+                {
+                    if(read1.GetString(0) != null)
+                    {
+                        query2 = new SqlCommand("SELECT OrderListID FROM OrderList WHERE OrderID = '" + read1.GetString(0) + "';", sqlcon);
+                        SqlDataReader read2 = query2.ExecuteReader();
+                        while (read2.Read())
+                        {
+                            if(read2.GetString(0) != null)
+                            {
+                                query3 = new SqlCommand("DELETE FROM OrderList WHERE OrderListID = '" + read2.GetString(0) + "';", sqlcon);
+                                query3.ExecuteNonQuery();
+                            }
+                        }
+                        read2.Close();
+                        query4 = new SqlCommand("DELETE FROM OrderRecord WHERE OrderID = '" + read1.GetString(0) + "';", sqlcon);
+                        query4.ExecuteNonQuery();
+                    }
+                }
+                read1.Close();
                 query.Parameters.AddWithValue("@Username", userCombo.SelectedItem);//set username to text in combobox
                 query.ExecuteNonQuery();//execute query
                 MessageBox.Show("User account " + userCombo.SelectedItem + " deleted.");//show message box

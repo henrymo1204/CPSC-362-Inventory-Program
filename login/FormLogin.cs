@@ -47,7 +47,7 @@ namespace login
             else//if user did input both username and password
             {
                 sqlcon.Open();//open database
-                SqlCommand query = new SqlCommand("SELECT loginid, password, usergroup FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
+                SqlCommand query = new SqlCommand("SELECT loginid, password, usergroup, phonenumber, email, address FROM Login WHERE username = @username;", sqlcon);//query command to look for the correct password based on user input username
                 query.Parameters.AddWithValue("username", txtUsername.Text);//set username to look for to user input username
                 
                 SqlDataReader read = query.ExecuteReader();//execute query and store values to data reader
@@ -57,11 +57,20 @@ namespace login
                     string id = "";
                     string pw = "";
                     string group = "";
+                    string phone = "";
+                    string email = "";
+                    string address = "";
                     while (read.Read())
                     {
                         id = read.GetString(0);
                         pw = read.GetString(1); //set output to value output from executing the query
                         group = read.GetString(2); //get user group
+                        if(group == "Client")
+                        {
+                            phone = read.GetString(3);
+                            email = read.GetString(4);
+                            address = read.GetString(5);
+                        }
                     }
 
                     if (txtPassword.Text == pw)//compare user input password to the password in database
@@ -69,6 +78,12 @@ namespace login
                         User user = new User();
                         user.UserID = id;
                         user.Group = group; //keep track of user group
+                        if(group == "Client")
+                        {
+                            user.PhoneNumber = phone;
+                            user.EMail = email;
+                            user.Address = address;
+                        }
 
                         if(user.Group == "Admin" || user.Group == "Clerk" || user.Group == "Stocker")
                         {

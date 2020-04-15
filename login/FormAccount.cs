@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using login.classes;
+
+namespace login
+{
+    public partial class FormAccount : Form
+    {
+        SqlConnection sqlcon = null;//sql connection object
+        User user;
+
+        public FormAccount(User u)
+        {
+            InitializeComponent();
+            Connection open = new Connection();//create a connection object
+            this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
+            user = u;
+
+            textBox1.Text = user.UserID;
+            textBox2.Text = user.PhoneNumber;
+            textBox3.Text = user.EMail;
+            textBox4.Text = user.Address;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(button1.Text == "Update")
+            {
+                textBox2.ReadOnly = false;
+                textBox3.ReadOnly = false;
+                textBox4.ReadOnly = false;
+                textBox2.BackColor = Color.White;
+                textBox3.BackColor = Color.White;
+                textBox4.BackColor = Color.White;
+                textBox2.ForeColor = Color.Black;
+                textBox3.ForeColor = Color.Black;
+                textBox4.ForeColor = Color.Black;
+                button1.Text = "Save";
+                button2.Text = "Cancel";
+            }
+            else if(button1.Text == "Save")
+            {
+                sqlcon.Open();
+                SqlCommand query = new SqlCommand("UPDATE Login SET PhoneNumber = '" + textBox2.Text + "', EMail = '" + textBox3.Text + "', Address = '" + textBox4.Text + "' WHERE loginID = '" + textBox1.Text + "';", sqlcon);
+                query.ExecuteNonQuery();
+                sqlcon.Close();
+                user.PhoneNumber = textBox2.Text;
+                user.EMail = textBox3.Text;
+                user.Address = textBox4.Text;
+                MessageBox.Show("Saved.");
+
+                textBox2.ReadOnly = true;
+                textBox3.ReadOnly = true;
+                textBox4.ReadOnly = true;
+                textBox2.BackColor = Color.FromArgb(26, 32, 40);
+                textBox3.BackColor = Color.FromArgb(26, 32, 40);
+                textBox4.BackColor = Color.FromArgb(26, 32, 40);
+                textBox2.ForeColor = Color.White;
+                textBox3.ForeColor = Color.White;
+                textBox4.ForeColor = Color.White;
+                button1.Text = "Update";
+                button2.Text = "Exit";
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(button2.Text == "Exit")
+            {
+                Close();
+            }
+            else if(button2.Text == "Cancel")
+            {
+                textBox2.ReadOnly = true;
+                textBox3.ReadOnly = true;
+                textBox4.ReadOnly = true;
+                textBox2.BackColor = Color.FromArgb(26, 32, 40);
+                textBox3.BackColor = Color.FromArgb(26, 32, 40);
+                textBox4.BackColor = Color.FromArgb(26, 32, 40);
+                textBox2.ForeColor = Color.White;
+                textBox3.ForeColor = Color.White;
+                textBox4.ForeColor = Color.White;
+                button1.Text = "Update";
+            }
+        }
+    }
+}

@@ -156,3 +156,4 @@ C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.csp
 C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.csproj.CopyComplete
 C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.exe
 C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.pdb
+C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.FormAccount.resources

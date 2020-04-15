@@ -157,5 +157,11 @@ namespace login
             label1.Text = "$" + total;
             total = 0;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormAccount form = new FormAccount(user);
+            form.ShowDialog();
+        }
     }
 }

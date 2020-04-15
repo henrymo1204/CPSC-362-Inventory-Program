@@ -70,6 +70,12 @@
     <Compile Include="classes\Connection.cs" />
     <Compile Include="classes\Supplier.cs" />
     <Compile Include="classes\User.cs" />
+    <Compile Include="FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,9 +178,6 @@
     <Compile Include="FormViewAccounts.Designer.cs">
       <DependentUpon>FormViewAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginDataSet.cs">
-      <DependentUpon>LoginDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="LoginDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +185,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateAccount.resx">
       <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
