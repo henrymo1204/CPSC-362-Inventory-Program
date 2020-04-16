@@ -77,6 +77,7 @@ namespace login
                     {//if they are the same
                         User user = new User();
                         user.UserID = id;
+                        user.Password = pw;
                         user.Group = group; //keep track of user group
                         if(group == "Client")
                         {

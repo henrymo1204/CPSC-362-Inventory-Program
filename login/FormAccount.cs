@@ -37,6 +37,8 @@ namespace login
                 textBox2.ReadOnly = false;
                 textBox3.ReadOnly = false;
                 textBox4.ReadOnly = false;
+                label5.Visible = true;
+                textBox5.Visible = true;
                 textBox2.BackColor = Color.White;
                 textBox3.BackColor = Color.White;
                 textBox4.BackColor = Color.White;
@@ -48,26 +50,39 @@ namespace login
             }
             else if(button1.Text == "Save")
             {
-                sqlcon.Open();
-                SqlCommand query = new SqlCommand("UPDATE Login SET PhoneNumber = '" + textBox2.Text + "', EMail = '" + textBox3.Text + "', Address = '" + textBox4.Text + "' WHERE loginID = '" + textBox1.Text + "';", sqlcon);
-                query.ExecuteNonQuery();
-                sqlcon.Close();
-                user.PhoneNumber = textBox2.Text;
-                user.EMail = textBox3.Text;
-                user.Address = textBox4.Text;
-                MessageBox.Show("Saved.");
+                if (string.IsNullOrEmpty(textBox5.Text))
+                {
+                    MessageBox.Show("Please enter the password.");
+                }
+                else if(textBox5.Text == user.Password)
+                {
+                    sqlcon.Open();
+                    SqlCommand query = new SqlCommand("UPDATE Login SET PhoneNumber = '" + textBox2.Text + "', EMail = '" + textBox3.Text + "', Address = '" + textBox4.Text + "' WHERE loginID = '" + textBox1.Text + "';", sqlcon);
+                    query.ExecuteNonQuery();
+                    sqlcon.Close();
+                    user.PhoneNumber = textBox2.Text;
+                    user.EMail = textBox3.Text;
+                    user.Address = textBox4.Text;
+                    MessageBox.Show("Saved.");
 
-                textBox2.ReadOnly = true;
-                textBox3.ReadOnly = true;
-                textBox4.ReadOnly = true;
-                textBox2.BackColor = Color.FromArgb(26, 32, 40);
-                textBox3.BackColor = Color.FromArgb(26, 32, 40);
-                textBox4.BackColor = Color.FromArgb(26, 32, 40);
-                textBox2.ForeColor = Color.White;
-                textBox3.ForeColor = Color.White;
-                textBox4.ForeColor = Color.White;
-                button1.Text = "Update";
-                button2.Text = "Exit";
+                    textBox2.ReadOnly = true;
+                    textBox3.ReadOnly = true;
+                    textBox4.ReadOnly = true;
+                    label5.Visible = false;
+                    textBox5.Visible = false;
+                    textBox2.BackColor = Color.FromArgb(26, 32, 40);
+                    textBox3.BackColor = Color.FromArgb(26, 32, 40);
+                    textBox4.BackColor = Color.FromArgb(26, 32, 40);
+                    textBox2.ForeColor = Color.White;
+                    textBox3.ForeColor = Color.White;
+                    textBox4.ForeColor = Color.White;
+                    button1.Text = "Update";
+                    button2.Text = "Exit";
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect password.");
+                }
             }
         }
 
@@ -82,6 +97,8 @@ namespace login
                 textBox2.ReadOnly = true;
                 textBox3.ReadOnly = true;
                 textBox4.ReadOnly = true;
+                label5.Visible = false;
+                textBox5.Visible = false;
                 textBox2.BackColor = Color.FromArgb(26, 32, 40);
                 textBox3.BackColor = Color.FromArgb(26, 32, 40);
                 textBox4.BackColor = Color.FromArgb(26, 32, 40);
@@ -89,6 +106,7 @@ namespace login
                 textBox3.ForeColor = Color.White;
                 textBox4.ForeColor = Color.White;
                 button1.Text = "Update";
+                button2.Text = "Exit";
             }
         }
     }
