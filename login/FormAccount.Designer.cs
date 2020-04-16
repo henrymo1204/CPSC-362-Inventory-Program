@@ -124,15 +124,16 @@
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.White;
             this.textBox4.Location = new System.Drawing.Point(150, 140);
+            this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(130, 26);
+            this.textBox4.Size = new System.Drawing.Size(130, 67);
             this.textBox4.TabIndex = 7;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(24, 190);
+            this.button1.Location = new System.Drawing.Point(24, 231);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 40);
             this.button1.TabIndex = 1;
@@ -143,7 +144,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(195, 190);
+            this.button2.Location = new System.Drawing.Point(195, 231);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 40);
             this.button2.TabIndex = 2;
@@ -156,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(314, 283);
+            this.ClientSize = new System.Drawing.Size(314, 297);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox4);
