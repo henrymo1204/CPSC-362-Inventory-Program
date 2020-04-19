@@ -105,7 +105,7 @@ namespace login
             if (check() != 0)
             {
                 string id = update_orderid();
-                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord VALUES ('" + id + "', '" + user.UserID + "')", sqlcon);
+                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord VALUES ('" + id + "', '" + user.UserID + "', GETDATE(), 'New')", sqlcon);
                 sqlcon.Open();//open database
                 query.ExecuteNonQuery();//execute query
                 sqlcon.Close();//close database
@@ -118,7 +118,7 @@ namespace login
                             sqlcon.Open();
                             double num1 = double.Parse(row.Cells[3].Value.ToString());
                             double num2 = double.Parse(row.Cells[4].Value.ToString());
-                            SqlCommand query1 = new SqlCommand("INSERT INTO OrderList VALUES ('" + update_orderlistid() + "', '" + row.Cells[0].Value.ToString() + "', '" + row.Cells[4].Value.ToString() + "', '" + (num1*num2).ToString() + "', '" + id + "')", sqlcon);
+                            SqlCommand query1 = new SqlCommand("INSERT INTO OrderList VALUES ('" + update_orderlistid() + "', '" + row.Cells[0].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[4].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + (num1*num2).ToString() + "', '" + id + "')", sqlcon);
                             query1.ExecuteNonQuery();
                             sqlcon.Close();
                         }
