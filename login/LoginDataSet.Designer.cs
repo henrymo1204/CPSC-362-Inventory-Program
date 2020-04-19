@@ -1565,6 +1565,10 @@ namespace login {
             
             private global::System.Data.DataColumn columnOrderStatus;
             
+            private global::System.Data.DataColumn columnShippingMethod;
+            
+            private global::System.Data.DataColumn columnTrackingNumber;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OrderRecordDataTable() {
@@ -1632,6 +1636,22 @@ namespace login {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ShippingMethodColumn {
+                get {
+                    return this.columnShippingMethod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TrackingNumberColumn {
+                get {
+                    return this.columnTrackingNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1667,13 +1687,15 @@ namespace login {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrderRecordRow AddOrderRecordRow(string OrderID, LoginRow parentLoginRowByFK_loginID, string OrderDate, string OrderStatus) {
+            public OrderRecordRow AddOrderRecordRow(string OrderID, LoginRow parentLoginRowByFK_loginID, System.DateTime OrderDate, string OrderStatus, string ShippingMethod, string TrackingNumber) {
                 OrderRecordRow rowOrderRecordRow = ((OrderRecordRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         OrderID,
                         null,
                         OrderDate,
-                        OrderStatus};
+                        OrderStatus,
+                        ShippingMethod,
+                        TrackingNumber};
                 if ((parentLoginRowByFK_loginID != null)) {
                     columnValuesArray[1] = parentLoginRowByFK_loginID[0];
                 }
@@ -1710,6 +1732,8 @@ namespace login {
                 this.columnloginID = base.Columns["loginID"];
                 this.columnOrderDate = base.Columns["OrderDate"];
                 this.columnOrderStatus = base.Columns["OrderStatus"];
+                this.columnShippingMethod = base.Columns["ShippingMethod"];
+                this.columnTrackingNumber = base.Columns["TrackingNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1719,18 +1743,23 @@ namespace login {
                 base.Columns.Add(this.columnOrderID);
                 this.columnloginID = new global::System.Data.DataColumn("loginID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnloginID);
-                this.columnOrderDate = new global::System.Data.DataColumn("OrderDate", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnOrderDate = new global::System.Data.DataColumn("OrderDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderDate);
                 this.columnOrderStatus = new global::System.Data.DataColumn("OrderStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderStatus);
+                this.columnShippingMethod = new global::System.Data.DataColumn("ShippingMethod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShippingMethod);
+                this.columnTrackingNumber = new global::System.Data.DataColumn("TrackingNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTrackingNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOrderID}, true));
                 this.columnOrderID.AllowDBNull = false;
                 this.columnOrderID.Unique = true;
                 this.columnOrderID.MaxLength = 50;
                 this.columnloginID.MaxLength = 50;
-                this.columnOrderDate.MaxLength = 50;
                 this.columnOrderStatus.MaxLength = 50;
+                this.columnShippingMethod.MaxLength = 50;
+                this.columnTrackingNumber.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3463,10 +3492,10 @@ namespace login {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string OrderDate {
+            public System.DateTime OrderDate {
                 get {
                     try {
-                        return ((string)(this[this.tableOrderRecord.OrderDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableOrderRecord.OrderDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'OrderDate\' in table \'OrderRecord\' is DBNull.", e);
@@ -3490,6 +3519,38 @@ namespace login {
                 }
                 set {
                     this[this.tableOrderRecord.OrderStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ShippingMethod {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderRecord.ShippingMethodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShippingMethod\' in table \'OrderRecord\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderRecord.ShippingMethodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TrackingNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderRecord.TrackingNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TrackingNumber\' in table \'OrderRecord\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderRecord.TrackingNumberColumn] = value;
                 }
             }
             
@@ -3538,6 +3599,30 @@ namespace login {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetOrderStatusNull() {
                 this[this.tableOrderRecord.OrderStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsShippingMethodNull() {
+                return this.IsNull(this.tableOrderRecord.ShippingMethodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetShippingMethodNull() {
+                this[this.tableOrderRecord.ShippingMethodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTrackingNumberNull() {
+                return this.IsNull(this.tableOrderRecord.TrackingNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTrackingNumberNull() {
+                this[this.tableOrderRecord.TrackingNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5961,44 +6046,57 @@ SELECT OrderListID, ProductID, ProductBrand, ProductName, Quantity, UnitPrice, T
             tableMapping.ColumnMappings.Add("loginID", "loginID");
             tableMapping.ColumnMappings.Add("OrderDate", "OrderDate");
             tableMapping.ColumnMappings.Add("OrderStatus", "OrderStatus");
+            tableMapping.ColumnMappings.Add("ShippingMethod", "ShippingMethod");
+            tableMapping.ColumnMappings.Add("TrackingNumber", "TrackingNumber");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[OrderRecord] WHERE (([OrderID] = @Original_OrderID) AND ((@IsNull_loginID = 1 AND [loginID] IS NULL) OR ([loginID] = @Original_loginID)) AND ((@IsNull_OrderDate = 1 AND [OrderDate] IS NULL) OR ([OrderDate] = @Original_OrderDate)) AND ((@IsNull_OrderStatus = 1 AND [OrderStatus] IS NULL) OR ([OrderStatus] = @Original_OrderStatus)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[OrderRecord] WHERE (([OrderID] = @Original_OrderID) AND ((@IsNull_loginID = 1 AND [loginID] IS NULL) OR ([loginID] = @Original_loginID)) AND ((@IsNull_OrderDate = 1 AND [OrderDate] IS NULL) OR ([OrderDate] = @Original_OrderDate)) AND ((@IsNull_OrderStatus = 1 AND [OrderStatus] IS NULL) OR ([OrderStatus] = @Original_OrderStatus)) AND ((@IsNull_ShippingMethod = 1 AND [ShippingMethod] IS NULL) OR ([ShippingMethod] = @Original_ShippingMethod)) AND ((@IsNull_TrackingNumber = 1 AND [TrackingNumber] IS NULL) OR ([TrackingNumber] = @Original_TrackingNumber)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_loginID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "loginID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_loginID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "loginID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OrderDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OrderStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ShippingMethod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShippingMethod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShippingMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShippingMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TrackingNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrackingNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[OrderRecord] ([OrderID], [loginID], [OrderDate], [OrderStatus]" +
-                ") VALUES (@OrderID, @loginID, @OrderDate, @OrderStatus);\r\nSELECT OrderID, loginI" +
-                "D, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID = @OrderID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[OrderRecord] ([OrderID], [loginID], [OrderDate], [OrderStatus], [ShippingMethod], [TrackingNumber]) VALUES (@OrderID, @loginID, @OrderDate, @OrderStatus, @ShippingMethod, @TrackingNumber);
+SELECT OrderID, loginID, OrderDate, OrderStatus, ShippingMethod, TrackingNumber FROM OrderRecord WHERE (OrderID = @OrderID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "loginID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShippingMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShippingMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrackingNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[OrderRecord] SET [OrderID] = @OrderID, [loginID] = @loginID, [OrderDate] = @OrderDate, [OrderStatus] = @OrderStatus WHERE (([OrderID] = @Original_OrderID) AND ((@IsNull_loginID = 1 AND [loginID] IS NULL) OR ([loginID] = @Original_loginID)) AND ((@IsNull_OrderDate = 1 AND [OrderDate] IS NULL) OR ([OrderDate] = @Original_OrderDate)) AND ((@IsNull_OrderStatus = 1 AND [OrderStatus] IS NULL) OR ([OrderStatus] = @Original_OrderStatus)));
-SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID = @OrderID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[OrderRecord] SET [OrderID] = @OrderID, [loginID] = @loginID, [OrderDate] = @OrderDate, [OrderStatus] = @OrderStatus, [ShippingMethod] = @ShippingMethod, [TrackingNumber] = @TrackingNumber WHERE (([OrderID] = @Original_OrderID) AND ((@IsNull_loginID = 1 AND [loginID] IS NULL) OR ([loginID] = @Original_loginID)) AND ((@IsNull_OrderDate = 1 AND [OrderDate] IS NULL) OR ([OrderDate] = @Original_OrderDate)) AND ((@IsNull_OrderStatus = 1 AND [OrderStatus] IS NULL) OR ([OrderStatus] = @Original_OrderStatus)) AND ((@IsNull_ShippingMethod = 1 AND [ShippingMethod] IS NULL) OR ([ShippingMethod] = @Original_ShippingMethod)) AND ((@IsNull_TrackingNumber = 1 AND [TrackingNumber] IS NULL) OR ([TrackingNumber] = @Original_TrackingNumber)));
+SELECT OrderID, loginID, OrderDate, OrderStatus, ShippingMethod, TrackingNumber FROM OrderRecord WHERE (OrderID = @OrderID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "loginID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShippingMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShippingMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrackingNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_loginID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "loginID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_loginID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "loginID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OrderDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OrderStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ShippingMethod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShippingMethod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShippingMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShippingMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TrackingNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrackingNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6014,7 +6112,8 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT OrderID, loginID, OrderDate, OrderStatus FROM dbo.OrderRecord";
+            this._commandCollection[0].CommandText = "SELECT OrderID, loginID, OrderDate, OrderStatus, ShippingMethod, TrackingNumber F" +
+                "ROM dbo.OrderRecord";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6075,7 +6174,7 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_OrderID, string Original_loginID, string Original_OrderDate, string Original_OrderStatus) {
+        public virtual int Delete(string Original_OrderID, string Original_loginID, global::System.Nullable<global::System.DateTime> Original_OrderDate, string Original_OrderStatus, string Original_ShippingMethod, string Original_TrackingNumber) {
             if ((Original_OrderID == null)) {
                 throw new global::System.ArgumentNullException("Original_OrderID");
             }
@@ -6090,13 +6189,13 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_loginID));
             }
-            if ((Original_OrderDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            if ((Original_OrderDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_OrderDate.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_OrderDate));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((Original_OrderStatus == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
@@ -6105,6 +6204,22 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_OrderStatus));
+            }
+            if ((Original_ShippingMethod == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_ShippingMethod));
+            }
+            if ((Original_TrackingNumber == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_TrackingNumber));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6126,7 +6241,7 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string OrderID, string loginID, string OrderDate, string OrderStatus) {
+        public virtual int Insert(string OrderID, string loginID, global::System.Nullable<global::System.DateTime> OrderDate, string OrderStatus, string ShippingMethod, string TrackingNumber) {
             if ((OrderID == null)) {
                 throw new global::System.ArgumentNullException("OrderID");
             }
@@ -6139,17 +6254,29 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(loginID));
             }
-            if ((OrderDate == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((OrderDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(OrderDate.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(OrderDate));
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((OrderStatus == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(OrderStatus));
+            }
+            if ((ShippingMethod == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ShippingMethod));
+            }
+            if ((TrackingNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(TrackingNumber));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6171,7 +6298,7 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string OrderID, string loginID, string OrderDate, string OrderStatus, string Original_OrderID, string Original_loginID, string Original_OrderDate, string Original_OrderStatus) {
+        public virtual int Update(string OrderID, string loginID, global::System.Nullable<global::System.DateTime> OrderDate, string OrderStatus, string ShippingMethod, string TrackingNumber, string Original_OrderID, string Original_loginID, global::System.Nullable<global::System.DateTime> Original_OrderDate, string Original_OrderStatus, string Original_ShippingMethod, string Original_TrackingNumber) {
             if ((OrderID == null)) {
                 throw new global::System.ArgumentNullException("OrderID");
             }
@@ -6184,11 +6311,11 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(loginID));
             }
-            if ((OrderDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((OrderDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(OrderDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(OrderDate));
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((OrderStatus == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -6196,35 +6323,63 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(OrderStatus));
             }
+            if ((ShippingMethod == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ShippingMethod));
+            }
+            if ((TrackingNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(TrackingNumber));
+            }
             if ((Original_OrderID == null)) {
                 throw new global::System.ArgumentNullException("Original_OrderID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_OrderID));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_OrderID));
             }
             if ((Original_loginID == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_loginID));
-            }
-            if ((Original_OrderDate == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_OrderDate));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_loginID));
             }
-            if ((Original_OrderStatus == null)) {
+            if ((Original_OrderDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_OrderDate.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
+            if ((Original_OrderStatus == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_OrderStatus));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_OrderStatus));
+            }
+            if ((Original_ShippingMethod == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_ShippingMethod));
+            }
+            if ((Original_TrackingNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_TrackingNumber));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6246,8 +6401,8 @@ SELECT OrderID, loginID, OrderDate, OrderStatus FROM OrderRecord WHERE (OrderID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string loginID, string OrderDate, string OrderStatus, string Original_OrderID, string Original_loginID, string Original_OrderDate, string Original_OrderStatus) {
-            return this.Update(Original_OrderID, loginID, OrderDate, OrderStatus, Original_OrderID, Original_loginID, Original_OrderDate, Original_OrderStatus);
+        public virtual int Update(string loginID, global::System.Nullable<global::System.DateTime> OrderDate, string OrderStatus, string ShippingMethod, string TrackingNumber, string Original_OrderID, string Original_loginID, global::System.Nullable<global::System.DateTime> Original_OrderDate, string Original_OrderStatus, string Original_ShippingMethod, string Original_TrackingNumber) {
+            return this.Update(Original_OrderID, loginID, OrderDate, OrderStatus, ShippingMethod, TrackingNumber, Original_OrderID, Original_loginID, Original_OrderDate, Original_OrderStatus, Original_ShippingMethod, Original_TrackingNumber);
         }
     }
     

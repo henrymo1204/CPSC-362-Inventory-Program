@@ -105,7 +105,7 @@ namespace login
             if (check() != 0)
             {
                 string id = update_orderid();
-                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord VALUES ('" + id + "', '" + user.UserID + "', GETDATE(), 'New')", sqlcon);
+                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord (OrderID, loginID, OrderDate, OrderStatus) VALUES ('" + id + "', '" + user.UserID + "', GETDATE(), 'New')", sqlcon);
                 sqlcon.Open();//open database
                 query.ExecuteNonQuery();//execute query
                 sqlcon.Close();//close database
@@ -161,6 +161,12 @@ namespace login
         private void button2_Click(object sender, EventArgs e)
         {
             FormAccount form = new FormAccount(user);
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormOrderHistory form = new FormOrderHistory();
             form.ShowDialog();
         }
     }

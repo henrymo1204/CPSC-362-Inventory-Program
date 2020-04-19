@@ -51,7 +51,29 @@
     <ApplicationIcon>TopShelfLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,8 +90,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Connection.cs" />
+    <Compile Include="classes\OrderDetail.cs" />
+    <Compile Include="classes\Orders.cs" />
     <Compile Include="classes\Supplier.cs" />
     <Compile Include="classes\User.cs" />
+    <Compile Include="FormOrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderHistory.Designer.cs">
+      <DependentUpon>FormOrderHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +111,12 @@
     </Compile>
     <Compile Include="FormOrder.designer.cs">
       <DependentUpon>FormOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInvoice.Designer.cs">
+      <DependentUpon>FormInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProductBarcode.cs">
       <SubType>Form</SubType>
@@ -185,6 +221,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +255,12 @@
     <EmbeddedResource Include="FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderHistory.resx">
+      <DependentUpon>FormOrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInvoice.resx">
+      <DependentUpon>FormInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProductBarcode.resx">
       <DependentUpon>FormProductBarcode.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +291,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rptInvoice.rdlc" />
     <None Include="LoginDataSet.xsc">
       <DependentUpon>LoginDataSet.xsd</DependentUpon>
     </None>
@@ -260,6 +304,7 @@
       <DependentUpon>LoginDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\login.classes.Orders.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -286,6 +331,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TopShelfLogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
