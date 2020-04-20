@@ -25,21 +25,6 @@ namespace login
             client = c;
         }
 
-        private void buttonLoad_Click(object sender, EventArgs e)
-        {           
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["login.Properties.Settings.LoginConnectionString"].ConnectionString))
-            {
-                if (db.State == ConnectionState.Closed)
-                {
-                    db.Open();
-                }
-                string query = "select * from OrderRecord where OrderDate between '{dtFromDate.Value}' and '{dtToDate.Value}'";
-
-                orderRecordBindingSource.DataSource = db.Query<Orders>(query, commandType: CommandType.Text);
-            }
-            
-        }
-
         private void buttonView_Click(object sender, EventArgs e)
         {
             Orders obj = orderRecordBindingSource.Current as Orders;
@@ -68,20 +53,17 @@ namespace login
         {
             // TODO: This line of code loads data into the 'loginDataSet.OrderRecord' table. You can move, or remove it, as needed.
             this.orderRecordTableAdapter.Fill(this.loginDataSet.OrderRecord);
-     
-            DateTime dt1 = new DateTime();
-            DateTime dt2 = new DateTime();
-            sqlcon.Open();
-            SqlCommand query1 = new SqlCommand("SELECT MIN(OrderDate), Max(OrderDate) FROM OrderRecord;", sqlcon);
-            SqlDataReader read = query1.ExecuteReader();
-            while (read.Read())
+
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["login.Properties.Settings.LoginConnectionString"].ConnectionString))
             {
-                dt1 = Convert.ToDateTime(read.GetString(0)).AddDays(-1);
-                dt2 = Convert.ToDateTime(read.GetString(1));
-                dtFromDate.Value = dt1;
-                dtToDate.Value = dt2;
+                if (db.State == ConnectionState.Closed)
+                {
+                    db.Open();
+                }
+                string query = "SELECT * FROM OrderRecord WHERE ClientID = '" + client.ClientID + "';";
+
+                orderRecordBindingSource.DataSource = db.Query<Orders>(query, commandType: CommandType.Text);
             }
-            sqlcon.Close();
         }
         
     }

@@ -10,8 +10,14 @@ namespace login.classes
     {
         public string OrderID { get; set; }
 
+        public string ClientID { get; set; }
+
         public DateTime OrderDate { get; set; }
 
         public string OrderStatus { get; set; }
+
+        public string ShippingMethod { get; set; }
+
+        public string TrackingNumber { get; set; }
     }
 }
