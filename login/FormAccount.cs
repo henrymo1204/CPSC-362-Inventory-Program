@@ -16,18 +16,20 @@ namespace login
     {
         SqlConnection sqlcon = null;//sql connection object
         User user;
+        Client client;
 
-        public FormAccount(User u)
+        public FormAccount(User u, Client c)
         {
             InitializeComponent();
             Connection open = new Connection();//create a connection object
             this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
             user = u;
+            client = c;
 
-            textBox1.Text = user.UserID;
-            textBox2.Text = user.PhoneNumber;
-            textBox3.Text = user.EMail;
-            textBox4.Text = user.Address;
+            textBox1.Text = client.ClientID;
+            textBox2.Text = client.PhoneNumber;
+            textBox3.Text = client.EMail;
+            textBox4.Text = client.Address;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,12 +59,12 @@ namespace login
                 else if(textBox5.Text == user.Password)
                 {
                     sqlcon.Open();
-                    SqlCommand query = new SqlCommand("UPDATE Login SET PhoneNumber = '" + textBox2.Text + "', EMail = '" + textBox3.Text + "', Address = '" + textBox4.Text + "' WHERE loginID = '" + textBox1.Text + "';", sqlcon);
+                    SqlCommand query = new SqlCommand("UPDATE Client SET PhoneNumber = '" + textBox2.Text + "', EMail = '" + textBox3.Text + "', Address = '" + textBox4.Text + "' WHERE ClientID = '" + textBox1.Text + "';", sqlcon);
                     query.ExecuteNonQuery();
                     sqlcon.Close();
-                    user.PhoneNumber = textBox2.Text;
-                    user.EMail = textBox3.Text;
-                    user.Address = textBox4.Text;
+                    client.PhoneNumber = textBox2.Text;
+                    client.EMail = textBox3.Text;
+                    client.Address = textBox4.Text;
                     MessageBox.Show("Saved.");
 
                     textBox2.ReadOnly = true;

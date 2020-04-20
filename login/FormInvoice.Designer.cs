@@ -38,14 +38,14 @@
             this.reportViewer.Location = new System.Drawing.Point(0, 0);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer.Size = new System.Drawing.Size(748, 559);
             this.reportViewer.TabIndex = 0;
             // 
             // FormInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(748, 559);
             this.Controls.Add(this.reportViewer);
             this.Name = "FormInvoice";
             this.Text = "Invoice";

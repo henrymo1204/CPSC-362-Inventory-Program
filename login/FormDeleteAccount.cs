@@ -30,18 +30,22 @@ namespace login
         private void deleteButton_Click(object sender, EventArgs e)
         {
             SqlCommand query = new SqlCommand("DELETE FROM Login WHERE Username = @Username;", sqlcon);//delete product from database
-            SqlCommand query1 = new SqlCommand("SELECT OrderID FROM OrderRecord WHERE loginID = @loginID;", sqlcon);
+            SqlCommand query1 = new SqlCommand("SELECT OrderID FROM OrderRecord WHERE ClientID = @ClientID;", sqlcon);
             SqlCommand query2;
             SqlCommand query3;
             SqlCommand query4;
             SqlCommand query5 = new SqlCommand("SELECT loginID FROM Login WHERE Username = @Username;", sqlcon);
+            SqlCommand query6 = new SqlCommand("SELECT ClientID FROM Client WHERE loginID = @loginID;", sqlcon);
+            SqlCommand query7 = new SqlCommand("DELETE FROM Client WHERE ClientID = @Client;", sqlcon);
    
             if (userCombo.SelectedIndex > -1)//check if something is selected in combobox1
             {//if true
                 sqlcon.Open();//open database
                 query5.Parameters.AddWithValue("@Username", userCombo.SelectedItem);
                 string id = query5.ExecuteScalar().ToString();
-                query1.Parameters.AddWithValue("@loginID", id);
+                query6.Parameters.AddWithValue("@loginID", id);
+                string cid = query6.ExecuteScalar().ToString();
+                query1.Parameters.AddWithValue("@loginID", cid);
                 SqlDataReader read1 = query1.ExecuteReader();
                 while (read1.Read())
                 {
@@ -63,6 +67,8 @@ namespace login
                     }
                 }
                 read1.Close();
+                query7.Parameters.AddWithValue("@Client", cid);
+                query7.ExecuteNonQuery();
                 query.Parameters.AddWithValue("@Username", userCombo.SelectedItem);//set username to text in combobox
                 query.ExecuteNonQuery();//execute query
                 MessageBox.Show("User account " + userCombo.SelectedItem + " deleted.");//show message box

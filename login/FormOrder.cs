@@ -16,17 +16,19 @@ namespace login
     {
 
         SqlConnection sqlcon = null;//sql connection variable
+        Client client;
         User user;
         ComboBox combo;
         double total = 0;
         int rowIndex;
 
-        public FormOrder(User u)
+        public FormOrder(User u, Client c)
         {
             InitializeComponent();
             Connection open = new Connection();// create a connection object
             this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
             user = u;
+            client = c;
         }
 
         private void FormOrder_Load(object sender, EventArgs e)
@@ -105,7 +107,7 @@ namespace login
             if (check() != 0)
             {
                 string id = update_orderid();
-                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord (OrderID, loginID, OrderDate, OrderStatus) VALUES ('" + id + "', '" + user.UserID + "', GETDATE(), 'New')", sqlcon);
+                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord (OrderID, ClientID, OrderDate, OrderStatus) VALUES ('" + id + "', '" + client.ClientID + "', convert(date,getdate()), 'New')", sqlcon);
                 sqlcon.Open();//open database
                 query.ExecuteNonQuery();//execute query
                 sqlcon.Close();//close database
@@ -160,13 +162,13 @@ namespace login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormAccount form = new FormAccount(user);
+            FormAccount form = new FormAccount(user, client);
             form.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormOrderHistory form = new FormOrderHistory();
+            FormOrderHistory form = new FormOrderHistory(user, client);
             form.ShowDialog();
         }
     }

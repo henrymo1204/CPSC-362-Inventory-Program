@@ -15,6 +15,7 @@ namespace login
     public partial class FormViewAccounts : Form
     {
         SqlConnection sqlcon = null;//sql connection object
+
         public FormViewAccounts()
         {
             InitializeComponent();

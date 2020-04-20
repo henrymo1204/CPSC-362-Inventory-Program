@@ -12,29 +12,32 @@ namespace login
 {
     public partial class FormOrderHistory : Form
     {
-        SqlConnection sqlcon;
+        SqlConnection sqlcon = null;
+        Client client;
+        User user;
 
-        public FormOrderHistory()
+        public FormOrderHistory(User u, Client c)
         {
             InitializeComponent();
             Connection open = new Connection();// create a connection object
             this.sqlcon = open.connect();//set sqlcon to the sql connection object returned from the connect function
+            user = u;
+            client = c;
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
-        {
+        {           
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["login.Properties.Settings.LoginConnectionString"].ConnectionString))
             {
                 if (db.State == ConnectionState.Closed)
                 {
                     db.Open();
                 }
-                string query = "select OrderID, OrderDate, OrderStatus" +
-                        " from OrderRecord" +
-                        $" where OrderDate between '{dtFromDate.Value}' and '{dtToDate.Value}'";
+                string query = "select * from OrderRecord where OrderDate between '{dtFromDate.Value}' and '{dtToDate.Value}'";
 
                 orderRecordBindingSource.DataSource = db.Query<Orders>(query, commandType: CommandType.Text);
             }
+            
         }
 
         private void buttonView_Click(object sender, EventArgs e)
@@ -53,32 +56,33 @@ namespace login
                             $" where d.OrderID = '{obj.OrderID}'";
 
                     List<OrderDetail> list = db.Query<OrderDetail>(query, commandType: CommandType.Text).ToList();
-                    using (FormInvoice frm = new FormInvoice(obj, list))
+                    using (FormInvoice frm = new FormInvoice(obj, user, client))
                     {
                         frm.ShowDialog();
                     }
                 }
             }
         }
-
+        
         private void FormOrderHistory_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'loginDataSet.OrderRecord' table. You can move, or remove it, as needed.
             this.orderRecordTableAdapter.Fill(this.loginDataSet.OrderRecord);
-
+     
             DateTime dt1 = new DateTime();
             DateTime dt2 = new DateTime();
             sqlcon.Open();
-            SqlCommand query = new SqlCommand("SELECT MIN(OrderDate), Max(OrderDate) FROM OrderRecord;", sqlcon);
-            SqlDataReader read = query.ExecuteReader();
+            SqlCommand query1 = new SqlCommand("SELECT MIN(OrderDate), Max(OrderDate) FROM OrderRecord;", sqlcon);
+            SqlDataReader read = query1.ExecuteReader();
             while (read.Read())
             {
-                dt1 = Convert.ToDateTime(read.GetString(0));
+                dt1 = Convert.ToDateTime(read.GetString(0)).AddDays(-1);
                 dt2 = Convert.ToDateTime(read.GetString(1));
                 dtFromDate.Value = dt1;
                 dtToDate.Value = dt2;
             }
             sqlcon.Close();
         }
+        
     }
 }

@@ -31,7 +31,7 @@ namespace login
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            SqlCommand query;
+            SqlCommand query, query1;
             if (string.IsNullOrEmpty(usernameBox.Text) || string.IsNullOrEmpty(passwordBox.Text))//check if any of the text box is empty
             {
                 MessageBox.Show("Need more information!");//show message
@@ -52,17 +52,21 @@ namespace login
                         }
                         else
                         {
-                            query = new SqlCommand("INSERT INTO Login VALUES (@loginID, @Username, @Password, @Usergroup, @PhoneNumber, @EMail, @Address);", sqlcon);//insert user into database
+                            query = new SqlCommand("INSERT INTO Login VALUES (@loginID, @Username, @Password, @Usergroup);", sqlcon);//insert user into database
+                            query1 = new SqlCommand("INSERT INTO Client VALUES (@ClientID, @PhoneNumber, @EMail, @Address, @loginID);", sqlcon);
                             //get vals from text boxes
                             query.Parameters.AddWithValue("@LoginID", get_id());
                             query.Parameters.AddWithValue("@Username", usernameBox.Text);
                             query.Parameters.AddWithValue("@Password", passwordBox.Text);
                             query.Parameters.AddWithValue("@Usergroup", groupCombo.SelectedItem);
-                            query.Parameters.AddWithValue("@PhoneNumber", textBox1.Text);
-                            query.Parameters.AddWithValue("@EMail", textBox2.Text);
-                            query.Parameters.AddWithValue("@Address", textBox3.Text);
+                            query1.Parameters.AddWithValue("@ClientID", get_cid());
+                            query1.Parameters.AddWithValue("@PhoneNumber", textBox1.Text);
+                            query1.Parameters.AddWithValue("@EMail", textBox2.Text);
+                            query1.Parameters.AddWithValue("@Address", textBox3.Text);
+                            query1.Parameters.AddWithValue("@loginID", get_id());
                             sqlcon.Open();//open database
                             query.ExecuteNonQuery();//execute query
+                            query1.ExecuteNonQuery();
                             MessageBox.Show("User " + usernameBox.Text + " inserted.");//show message box   
                             sqlcon.Close();//close database
 
@@ -120,6 +124,21 @@ namespace login
             return id;
         }
 
+        private int get_cid()
+        {
+            sqlcon.Open();//open database
+            SqlCommand query = new SqlCommand("SELECT MAX(ClientID) FROM Client;", sqlcon);//get the highest client id
+            string output = query.ExecuteScalar().ToString();//set output to value output from executed query
+            sqlcon.Close();//close database
+            if (output == "")
+            {
+                return 1;
+            }
+            int id = Int32.Parse(output);//convert output to integer and set it to id
+            id++;//increment id
+            return id;
+        }
+
         public bool usernameExists(string username) //return true if the username already exists in the database
         {
             sqlcon.Open();//open database
@@ -134,22 +153,6 @@ namespace login
             sqlcon.Close();
 
             return name; //return bool
-        }
-
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
