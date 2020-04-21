@@ -102,6 +102,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormSearchShipmentTime";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSearchShipmentTime";
             this.ResumeLayout(false);
             this.PerformLayout();

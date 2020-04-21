@@ -123,6 +123,7 @@
             this.Controls.Add(this.buttonView);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormOrderHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order History";
             this.Load += new System.EventHandler(this.FormOrderHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -130,12 +130,6 @@
     <Compile Include="FormInvoice.Designer.cs">
       <DependentUpon>FormInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrderStocker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormOrderStocker.Designer.cs">
-      <DependentUpon>FormOrderStocker.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormProductBarcode.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FormOrderInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormOderInfo";
             this.Load += new System.EventHandler(this.FormOderInfo_Load);
             this.ResumeLayout(false);

@@ -210,6 +210,7 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Name = "FormCreateAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCreateAccount";
             this.ResumeLayout(false);
             this.PerformLayout();

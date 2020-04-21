@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.orderRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataSet = new login.LoginDataSet();
-            this.orderRecordTableAdapter = new login.LoginDataSetTableAdapters.OrderRecordTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.shippingMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trackingNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginDataSet = new login.LoginDataSet();
+            this.orderRecordTableAdapter = new login.LoginDataSetTableAdapters.OrderRecordTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderRecordBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -62,42 +62,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(643, 324);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // orderRecordBindingSource
-            // 
-            this.orderRecordBindingSource.DataMember = "OrderRecord";
-            this.orderRecordBindingSource.DataSource = this.loginDataSet;
-            // 
-            // loginDataSet
-            // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orderRecordTableAdapter
-            // 
-            this.orderRecordTableAdapter.ClearBeforeFill = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(22, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 60);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "View";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(22, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 60);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // orderIDDataGridViewTextBoxColumn
             // 
@@ -143,6 +107,42 @@
             this.trackingNumberDataGridViewTextBoxColumn.Name = "trackingNumberDataGridViewTextBoxColumn";
             this.trackingNumberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // orderRecordBindingSource
+            // 
+            this.orderRecordBindingSource.DataMember = "OrderRecord";
+            this.orderRecordBindingSource.DataSource = this.loginDataSet;
+            // 
+            // loginDataSet
+            // 
+            this.loginDataSet.DataSetName = "LoginDataSet";
+            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orderRecordTableAdapter
+            // 
+            this.orderRecordTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(22, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 60);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "View";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(22, 119);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 60);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Update";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +153,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormNewOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNewOrder";
             this.Load += new System.EventHandler(this.FormNewOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

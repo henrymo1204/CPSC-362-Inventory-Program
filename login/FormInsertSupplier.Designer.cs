@@ -40,13 +40,13 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataSet = new login.LoginDataSet();
-            this.supplierTableAdapter = new login.LoginDataSetTableAdapters.SupplierTableAdapter();
             this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginDataSet = new login.LoginDataSet();
+            this.supplierTableAdapter = new login.LoginDataSetTableAdapters.SupplierTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -167,20 +167,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(553, 222);
             this.dataGridView1.TabIndex = 10;
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataMember = "Supplier";
-            this.supplierBindingSource.DataSource = this.loginDataSet;
-            // 
-            // loginDataSet
-            // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierTableAdapter
-            // 
-            this.supplierTableAdapter.ClearBeforeFill = true;
-            // 
             // supplierIDDataGridViewTextBoxColumn
             // 
             this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "SupplierID";
@@ -217,6 +203,20 @@
             this.supplierPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
             this.supplierPhoneNumberDataGridViewTextBoxColumn.Width = 125;
             // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.loginDataSet;
+            // 
+            // loginDataSet
+            // 
+            this.loginDataSet.DataSetName = "LoginDataSet";
+            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
             // FormInsertSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +236,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormInsertSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.FormInsertSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

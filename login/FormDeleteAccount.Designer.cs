@@ -87,6 +87,7 @@
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.userCombo);
             this.Name = "FormDeleteAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDeleteAccount";
             this.ResumeLayout(false);
             this.PerformLayout();
