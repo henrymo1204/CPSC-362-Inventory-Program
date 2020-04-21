@@ -100,6 +100,12 @@
     <Compile Include="FormNewOrder.Designer.cs">
       <DependentUpon>FormNewOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderInfo.Designer.cs">
+      <DependentUpon>FormOrderInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOrderHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     </Compile>
     <Compile Include="FormInvoice.Designer.cs">
       <DependentUpon>FormInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderStocker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderStocker.Designer.cs">
+      <DependentUpon>FormOrderStocker.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProductBarcode.cs">
       <SubType>Form</SubType>
@@ -269,6 +281,9 @@
     <EmbeddedResource Include="FormNewOrder.resx">
       <DependentUpon>FormNewOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderInfo.resx">
+      <DependentUpon>FormOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +323,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rptOrderInfo.rdlc" />
     <EmbeddedResource Include="rptInvoice.rdlc" />
     <None Include="LoginDataSet.xsc">
       <DependentUpon>LoginDataSet.xsd</DependentUpon>

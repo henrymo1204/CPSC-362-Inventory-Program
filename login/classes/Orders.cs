@@ -19,5 +19,7 @@ namespace login.classes
         public string ShippingMethod { get; set; }
 
         public string TrackingNumber { get; set; }
+
+        public string DeliveryAddress { get; set; }
     }
 }

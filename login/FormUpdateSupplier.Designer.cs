@@ -40,13 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginDataSet = new login.LoginDataSet();
+            this.supplierTableAdapter = new login.LoginDataSetTableAdapters.SupplierTableAdapter();
             this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataSet = new login.LoginDataSet();
-            this.supplierTableAdapter = new login.LoginDataSetTableAdapters.SupplierTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -169,38 +169,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(553, 222);
             this.dataGridView1.TabIndex = 21;
             // 
-            // supplierIDDataGridViewTextBoxColumn
-            // 
-            this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "SupplierID";
-            this.supplierIDDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
-            this.supplierIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
-            this.supplierIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // supplierNameDataGridViewTextBoxColumn
-            // 
-            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
-            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "Supplier Name";
-            this.supplierNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
-            this.supplierNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // supplierEmailDataGridViewTextBoxColumn
-            // 
-            this.supplierEmailDataGridViewTextBoxColumn.DataPropertyName = "SupplierEmail";
-            this.supplierEmailDataGridViewTextBoxColumn.HeaderText = "Supplier Email";
-            this.supplierEmailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierEmailDataGridViewTextBoxColumn.Name = "supplierEmailDataGridViewTextBoxColumn";
-            this.supplierEmailDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // supplierPhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.supplierPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "SupplierPhoneNumber";
-            this.supplierPhoneNumberDataGridViewTextBoxColumn.HeaderText = "Supplier Phone Number";
-            this.supplierPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierPhoneNumberDataGridViewTextBoxColumn.Name = "supplierPhoneNumberDataGridViewTextBoxColumn";
-            this.supplierPhoneNumberDataGridViewTextBoxColumn.Width = 125;
-            // 
             // supplierBindingSource
             // 
             this.supplierBindingSource.DataMember = "Supplier";
@@ -214,6 +182,42 @@
             // supplierTableAdapter
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // supplierIDDataGridViewTextBoxColumn
+            // 
+            this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "SupplierID";
+            this.supplierIDDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
+            this.supplierIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
+            this.supplierIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.supplierIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // supplierNameDataGridViewTextBoxColumn
+            // 
+            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "Supplier Name";
+            this.supplierNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
+            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.supplierNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // supplierEmailDataGridViewTextBoxColumn
+            // 
+            this.supplierEmailDataGridViewTextBoxColumn.DataPropertyName = "SupplierEmail";
+            this.supplierEmailDataGridViewTextBoxColumn.HeaderText = "Supplier Email";
+            this.supplierEmailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierEmailDataGridViewTextBoxColumn.Name = "supplierEmailDataGridViewTextBoxColumn";
+            this.supplierEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.supplierEmailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // supplierPhoneNumberDataGridViewTextBoxColumn
+            // 
+            this.supplierPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "SupplierPhoneNumber";
+            this.supplierPhoneNumberDataGridViewTextBoxColumn.HeaderText = "Supplier Phone Number";
+            this.supplierPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierPhoneNumberDataGridViewTextBoxColumn.Name = "supplierPhoneNumberDataGridViewTextBoxColumn";
+            this.supplierPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.supplierPhoneNumberDataGridViewTextBoxColumn.Width = 125;
             // 
             // FormUpdateSupplier
             // 

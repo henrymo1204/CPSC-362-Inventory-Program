@@ -1888,6 +1888,8 @@ namespace login {
             
             private global::System.Data.DataColumn columnTrackingNumber;
             
+            private global::System.Data.DataColumn columnDeliveryAddress;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OrderRecordDataTable() {
@@ -1971,6 +1973,14 @@ namespace login {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DeliveryAddressColumn {
+                get {
+                    return this.columnDeliveryAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2006,7 +2016,7 @@ namespace login {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrderRecordRow AddOrderRecordRow(string OrderID, ClientRow parentClientRowByFK_ClientID, string OrderDate, string OrderStatus, string ShippingMethod, string TrackingNumber) {
+            public OrderRecordRow AddOrderRecordRow(string OrderID, ClientRow parentClientRowByFK_ClientID, string OrderDate, string OrderStatus, string ShippingMethod, string TrackingNumber, string DeliveryAddress) {
                 OrderRecordRow rowOrderRecordRow = ((OrderRecordRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         OrderID,
@@ -2014,7 +2024,8 @@ namespace login {
                         OrderDate,
                         OrderStatus,
                         ShippingMethod,
-                        TrackingNumber};
+                        TrackingNumber,
+                        DeliveryAddress};
                 if ((parentClientRowByFK_ClientID != null)) {
                     columnValuesArray[1] = parentClientRowByFK_ClientID[0];
                 }
@@ -2053,6 +2064,7 @@ namespace login {
                 this.columnOrderStatus = base.Columns["OrderStatus"];
                 this.columnShippingMethod = base.Columns["ShippingMethod"];
                 this.columnTrackingNumber = base.Columns["TrackingNumber"];
+                this.columnDeliveryAddress = base.Columns["DeliveryAddress"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2070,6 +2082,8 @@ namespace login {
                 base.Columns.Add(this.columnShippingMethod);
                 this.columnTrackingNumber = new global::System.Data.DataColumn("TrackingNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrackingNumber);
+                this.columnDeliveryAddress = new global::System.Data.DataColumn("DeliveryAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeliveryAddress);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOrderID}, true));
                 this.columnOrderID.AllowDBNull = false;
@@ -3952,6 +3966,22 @@ namespace login {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DeliveryAddress {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderRecord.DeliveryAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DeliveryAddress\' in table \'OrderRecord\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderRecord.DeliveryAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ClientRow ClientRow {
                 get {
                     return ((ClientRow)(this.GetParentRow(this.Table.ParentRelations["FK_ClientID"])));
@@ -4019,6 +4049,18 @@ namespace login {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTrackingNumberNull() {
                 this[this.tableOrderRecord.TrackingNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDeliveryAddressNull() {
+                return this.IsNull(this.tableOrderRecord.DeliveryAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDeliveryAddressNull() {
+                this[this.tableOrderRecord.DeliveryAddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

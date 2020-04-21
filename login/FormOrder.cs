@@ -43,6 +43,11 @@ namespace login
                 string temp = num.ToString();
                 SelectQuantity.Items.Add(temp);
             }
+
+            comboBox1.Items.Add("USPS");
+            comboBox1.Items.Add("UPS");
+            comboBox1.Items.Add("FedEx");
+            comboBox1.Items.Add("Pick Up");
         }
 
 
@@ -98,10 +103,16 @@ namespace login
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (Convert.ToInt32(row.Cells[4].Value) < Convert.ToInt32(row.Cells[5].Value))
+                if(row.Cells[5].Value != null)
                 {
-                    MessageBox.Show("Not enough " + row.Cells[1].Value + " " + row.Cells[2].Value + " in stock!");
-                    return false;
+                    if (row.Cells[5].Value.ToString() != " ")
+                    {
+                        if (Convert.ToInt32(row.Cells[4].Value) < Convert.ToInt32(row.Cells[5].Value))
+                        {
+                            MessageBox.Show("Not enough " + row.Cells[1].Value + " " + row.Cells[2].Value + " in stock!");
+                            return false;
+                        }
+                    }
                 }
             }
             return true;
@@ -118,33 +129,41 @@ namespace login
             {
                 if (check2())
                 {
-                    string id = update_orderid();
-                    SqlCommand query = new SqlCommand("INSERT INTO OrderRecord (OrderID, ClientID, OrderDate, OrderStatus) VALUES ('" + id + "', '" + client.ClientID + "', convert(date,getdate()), 'New')", sqlcon);
-                    sqlcon.Open();//open database
-                    query.ExecuteNonQuery();//execute query
-                    sqlcon.Close();//close database
-                    double num1, num2, num3;
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    if(comboBox1.SelectedIndex > -1)
                     {
-                        if (row.Cells[5].Value != null)
+                        string id = update_orderid();
+                        string queryCommand = "INSERT INTO OrderRecord (OrderID, ClientID, OrderDate, OrderStatus, DeliveryAddress, ShippingMethod) VALUES ('" + id + "', '" + client.ClientID + "', convert(date,getdate()), 'New', '" + client.Address + "', '" + comboBox1.SelectedItem.ToString() + "')";
+                        SqlCommand query = new SqlCommand(queryCommand, sqlcon);
+                        sqlcon.Open();//open database
+                        query.ExecuteNonQuery();//execute query
+                        sqlcon.Close();//close database
+                        double num1, num2, num3;
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
-                            if (row.Cells[5].Value.ToString() != " ")
+                            if (row.Cells[5].Value != null)
                             {
-                                sqlcon.Open();
-                                num1 = double.Parse(row.Cells[3].Value.ToString());
-                                num2 = double.Parse(row.Cells[4].Value.ToString());
-                                num3 = double.Parse(row.Cells[5].Value.ToString());
-                                num2 = num2 - num3;
-                                SqlCommand query1 = new SqlCommand("INSERT INTO OrderList VALUES ('" + update_orderlistid() + "', '" + row.Cells[0].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + num3 + "', '" + num1 + "', '" + (num1 * num3).ToString() + "', '" + id + "')", sqlcon);
-                                SqlCommand query2 = new SqlCommand("UPDATE Product SET Quantity = '" + num2 + "' WHERE ProductID = '" + row.Cells[0].Value.ToString() + "';", sqlcon);
-                                query1.ExecuteNonQuery();
-                                query2.ExecuteNonQuery();
-                                sqlcon.Close();
+                                if (row.Cells[5].Value.ToString() != " ")
+                                {
+                                    sqlcon.Open();
+                                    num1 = double.Parse(row.Cells[3].Value.ToString());
+                                    num2 = double.Parse(row.Cells[4].Value.ToString());
+                                    num3 = double.Parse(row.Cells[5].Value.ToString());
+                                    num2 = num2 - num3;
+                                    SqlCommand query1 = new SqlCommand("INSERT INTO OrderList VALUES ('" + update_orderlistid() + "', '" + row.Cells[0].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + num3 + "', '" + num1 + "', '" + (num1 * num3).ToString() + "', '" + id + "')", sqlcon);
+                                    SqlCommand query2 = new SqlCommand("UPDATE Product SET Quantity = '" + num2 + "' WHERE ProductID = '" + row.Cells[0].Value.ToString() + "';", sqlcon);
+                                    query1.ExecuteNonQuery();
+                                    query2.ExecuteNonQuery();
+                                    sqlcon.Close();
+                                }
                             }
                         }
+                        MessageBox.Show("Order " + id + " is placed.");//show message box   
+                        refresh();
                     }
-                    MessageBox.Show("Order " + id + " is placed.");//show message box   
-                    refresh();
+                    else
+                    {
+                        MessageBox.Show("Shipping method not selected.");
+                    }
                 }
             }
         }

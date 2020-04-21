@@ -57,6 +57,7 @@ namespace login
                 new Microsoft.Reporting.WinForms.ReportParameter("pUserID",client.ClientID)
 
             };
+
             this.reportViewer.LocalReport.SetParameters(p);
             this.reportViewer.LocalReport.DataSources.Clear();
             this.reportViewer.LocalReport.DataSources.Add(rds);

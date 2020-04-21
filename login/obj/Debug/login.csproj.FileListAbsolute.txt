@@ -501,3 +501,8 @@ C:\Users\calvin\Desktop\Github Repo\Inventory_362\login\obj\Debug\login.csproj.C
 C:\Users\calvin\Desktop\Github Repo\Inventory_362\login\obj\Debug\login.exe
 C:\Users\calvin\Desktop\Github Repo\Inventory_362\login\obj\Debug\login.pdb
 C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.FormNewOrder.resources
+C:\Users\calvin\Desktop\CPSC-362-Inventory-Program-master\login\obj\Debug\login.FormNewOrder.resources
+C:\Users\calvin\Desktop\CPSC-362-Inventory-Program-master\login\obj\Debug\login.FormOrderInfo.resources
+C:\Users\calvin\Desktop\Github Repo\Inventory_362\login\obj\Debug\login.FormNewOrder.resources
+C:\Users\calvin\Desktop\Github Repo\Inventory_362\login\obj\Debug\login.FormOrderInfo.resources
+C:\Users\henry\source\repos\CPSC-362-Inventory-Program\login\obj\Debug\login.FormOrderInfo.resources
