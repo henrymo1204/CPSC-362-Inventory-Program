@@ -36,12 +36,12 @@ namespace login
             // TODO: This line of code loads data into the 'loginDataSet.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.loginDataSet.Product);
 
-            Quantity.Items.Add(" ");
+            SelectQuantity.Items.Add(" ");
             for(int i = 0; i < 10; i++)
             {
                 int num = i + 1;
                 string temp = num.ToString();
-                Quantity.Items.Add(temp);
+                SelectQuantity.Items.Add(temp);
             }
         }
 
@@ -76,12 +76,12 @@ namespace login
             return output.ToString();
         }
 
-        private int check()
+        private int check1()
         {
             int temp = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[4].Value != null)
+                if (row.Cells[5].Value != null)
                 {
                     temp++;
                 }
@@ -94,40 +94,58 @@ namespace login
             return temp;
         }
 
-        private void refresh()
+        private bool check2()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[4].Value = null;
+                if (Convert.ToInt32(row.Cells[4].Value) < Convert.ToInt32(row.Cells[5].Value))
+                {
+                    MessageBox.Show("Not enough " + row.Cells[1].Value + " " + row.Cells[2].Value + " in stock!");
+                    return false;
+                }
             }
+            return true;
+        }
+
+        private void refresh()
+        {
+            this.productTableAdapter.Fill(this.loginDataSet.Product);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (check() != 0)
+            if (check1() != 0)
             {
-                string id = update_orderid();
-                SqlCommand query = new SqlCommand("INSERT INTO OrderRecord (OrderID, ClientID, OrderDate, OrderStatus) VALUES ('" + id + "', '" + client.ClientID + "', convert(date,getdate()), 'New')", sqlcon);
-                sqlcon.Open();//open database
-                query.ExecuteNonQuery();//execute query
-                sqlcon.Close();//close database
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                if (check2())
                 {
-                    if (row.Cells[4].Value != null)
+                    string id = update_orderid();
+                    SqlCommand query = new SqlCommand("INSERT INTO OrderRecord (OrderID, ClientID, OrderDate, OrderStatus) VALUES ('" + id + "', '" + client.ClientID + "', convert(date,getdate()), 'New')", sqlcon);
+                    sqlcon.Open();//open database
+                    query.ExecuteNonQuery();//execute query
+                    sqlcon.Close();//close database
+                    double num1, num2, num3;
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        if (row.Cells[4].Value.ToString() != " ")
+                        if (row.Cells[5].Value != null)
                         {
-                            sqlcon.Open();
-                            double num1 = double.Parse(row.Cells[3].Value.ToString());
-                            double num2 = double.Parse(row.Cells[4].Value.ToString());
-                            SqlCommand query1 = new SqlCommand("INSERT INTO OrderList VALUES ('" + update_orderlistid() + "', '" + row.Cells[0].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[4].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + (num1*num2).ToString() + "', '" + id + "')", sqlcon);
-                            query1.ExecuteNonQuery();
-                            sqlcon.Close();
+                            if (row.Cells[5].Value.ToString() != " ")
+                            {
+                                sqlcon.Open();
+                                num1 = double.Parse(row.Cells[3].Value.ToString());
+                                num2 = double.Parse(row.Cells[4].Value.ToString());
+                                num3 = double.Parse(row.Cells[5].Value.ToString());
+                                num2 = num2 - num3;
+                                SqlCommand query1 = new SqlCommand("INSERT INTO OrderList VALUES ('" + update_orderlistid() + "', '" + row.Cells[0].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + num3 + "', '" + num1 + "', '" + (num1 * num3).ToString() + "', '" + id + "')", sqlcon);
+                                SqlCommand query2 = new SqlCommand("UPDATE Product SET Quantity = '" + num2 + "' WHERE ProductID = '" + row.Cells[0].Value.ToString() + "';", sqlcon);
+                                query1.ExecuteNonQuery();
+                                query2.ExecuteNonQuery();
+                                sqlcon.Close();
+                            }
                         }
                     }
+                    MessageBox.Show("Order " + id + " is placed.");//show message box   
+                    refresh();
                 }
-                MessageBox.Show("Order " + id + " is placed.");//show message box   
-                refresh();
             }
         }
 
@@ -146,11 +164,11 @@ namespace login
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if(row.Cells[4].Value != null)
+                if(row.Cells[5].Value != null)
                 {
-                    if(row.Cells[4].Value.ToString() != " ")
+                    if(row.Cells[5].Value.ToString() != " ")
                     {
-                        total += Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[3].Value);
+                        total += Convert.ToDouble(row.Cells[5].Value) * Convert.ToDouble(row.Cells[3].Value);
                     }
                 }
             }

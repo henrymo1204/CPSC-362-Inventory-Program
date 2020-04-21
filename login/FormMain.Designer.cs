@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.loginDataSet = new login.LoginDataSet();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -54,13 +61,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.productTableAdapter = new login.LoginDataSetTableAdapters.ProductTableAdapter();
             this.button4 = new System.Windows.Forms.Button();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expirationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -71,7 +72,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(22, 41);
+            this.button1.Location = new System.Drawing.Point(22, 40);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 60);
             this.button1.TabIndex = 1;
@@ -99,6 +100,69 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(928, 386);
             this.dataGridView1.TabIndex = 6;
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "Product ID";
+            this.productIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // productBrandDataGridViewTextBoxColumn
+            // 
+            this.productBrandDataGridViewTextBoxColumn.DataPropertyName = "ProductBrand";
+            this.productBrandDataGridViewTextBoxColumn.HeaderText = "Product Brand";
+            this.productBrandDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productBrandDataGridViewTextBoxColumn.Name = "productBrandDataGridViewTextBoxColumn";
+            this.productBrandDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productBrandDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // expirationDateDataGridViewTextBoxColumn
+            // 
+            this.expirationDateDataGridViewTextBoxColumn.DataPropertyName = "ExpirationDate";
+            this.expirationDateDataGridViewTextBoxColumn.HeaderText = "Expiration Date";
+            this.expirationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.expirationDateDataGridViewTextBoxColumn.Name = "expirationDateDataGridViewTextBoxColumn";
+            this.expirationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.expirationDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // productLocationDataGridViewTextBoxColumn
+            // 
+            this.productLocationDataGridViewTextBoxColumn.DataPropertyName = "ProductLocation";
+            this.productLocationDataGridViewTextBoxColumn.HeaderText = "Product Location";
+            this.productLocationDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productLocationDataGridViewTextBoxColumn.Name = "productLocationDataGridViewTextBoxColumn";
+            this.productLocationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productLocationDataGridViewTextBoxColumn.Width = 125;
             // 
             // productBindingSource
             // 
@@ -254,7 +318,7 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(22, 119);
+            this.button2.Location = new System.Drawing.Point(22, 120);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 60);
             this.button2.TabIndex = 2;
@@ -266,7 +330,7 @@
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(22, 197);
+            this.button3.Location = new System.Drawing.Point(22, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 60);
             this.button3.TabIndex = 3;
@@ -282,76 +346,32 @@
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(22, 278);
+            this.button4.Location = new System.Drawing.Point(22, 280);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 56);
+            this.button4.Size = new System.Drawing.Size(85, 60);
             this.button4.TabIndex = 10;
             this.button4.Text = "Product Barcode";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // productIDDataGridViewTextBoxColumn
+            // button5
             // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "Product ID";
-            this.productIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
-            this.productIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // productBrandDataGridViewTextBoxColumn
-            // 
-            this.productBrandDataGridViewTextBoxColumn.DataPropertyName = "ProductBrand";
-            this.productBrandDataGridViewTextBoxColumn.HeaderText = "Product Brand";
-            this.productBrandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productBrandDataGridViewTextBoxColumn.Name = "productBrandDataGridViewTextBoxColumn";
-            this.productBrandDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
-            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // expirationDateDataGridViewTextBoxColumn
-            // 
-            this.expirationDateDataGridViewTextBoxColumn.DataPropertyName = "ExpirationDate";
-            this.expirationDateDataGridViewTextBoxColumn.HeaderText = "Expiration Date";
-            this.expirationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.expirationDateDataGridViewTextBoxColumn.Name = "expirationDateDataGridViewTextBoxColumn";
-            this.expirationDateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // productLocationDataGridViewTextBoxColumn
-            // 
-            this.productLocationDataGridViewTextBoxColumn.DataPropertyName = "ProductLocation";
-            this.productLocationDataGridViewTextBoxColumn.HeaderText = "Product Location";
-            this.productLocationDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productLocationDataGridViewTextBoxColumn.Name = "productLocationDataGridViewTextBoxColumn";
-            this.productLocationDataGridViewTextBoxColumn.Width = 125;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(22, 360);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(85, 60);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Orders";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(1076, 440);
+            this.ClientSize = new System.Drawing.Size(1076, 446);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.menuStrip1);
@@ -361,8 +381,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.Shown += new System.EventHandler(this.Form2_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).EndInit();
@@ -399,6 +421,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertShippingInformationToolStripMenuItem;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productBrandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;

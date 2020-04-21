@@ -160,11 +160,11 @@
             this.supplierPhoneNumberDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.supplierBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(267, 39);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 222);
+            this.dataGridView1.Size = new System.Drawing.Size(553, 222);
             this.dataGridView1.TabIndex = 10;
             // 
             // supplierIDDataGridViewTextBoxColumn
@@ -218,7 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(716, 306);
+            this.ClientSize = new System.Drawing.Size(852, 306);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);

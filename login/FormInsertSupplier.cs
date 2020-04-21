@@ -28,13 +28,7 @@ namespace login
 
         public void update()
         {
-            sqlcon.Open();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Supplier;", sqlcon);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Supplier");
-            dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "Supplier";
-            sqlcon.Close();
+            this.supplierTableAdapter.Fill(this.loginDataSet.Supplier);
         }
 
         private void update_id()//auto increment product id

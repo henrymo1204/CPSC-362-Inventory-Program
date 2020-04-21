@@ -59,6 +59,18 @@ namespace login
             // TODO: This line of code loads data into the 'loginDataSet.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.loginDataSet.Product);
             dataGridView1.DataSource = Source();//fill grid view with data table from source() function
+
+        }
+
+        private void Form2_Shown(object sender, EventArgs e)
+        {
+            SqlCommand query = new SqlCommand("SELECT COUNT(OrderID) FROM OrderRecord WHERE OrderStatus = 'New';", sqlcon);
+            SqlCommand query1 = new SqlCommand("SELECT COUNT(OrderID) FROM OrderRecord WHERE OrderStatus = 'In Progress';", sqlcon);
+            sqlcon.Open();
+            string count1 = query.ExecuteScalar().ToString();
+            string count2 = query1.ExecuteScalar().ToString();
+            sqlcon.Close();
+            MessageBox.Show("You have " + count1 + " new order(s) and " + count2 + " order(s) in progress.");
         }
 
         private DataTable dt = new DataTable();//data table object
@@ -168,5 +180,10 @@ namespace login
             form.ShowDialog();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormNewOrder form = new FormNewOrder();
+            form.ShowDialog();
+        }
     }
 }
