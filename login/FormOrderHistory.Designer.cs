@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.orderRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginDataSet = new login.LoginDataSet();
+            this.buttonView = new System.Windows.Forms.Button();
+            this.orderRecordTableAdapter = new login.LoginDataSetTableAdapters.OrderRecordTableAdapter();
             this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shippingMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trackingNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataSet = new login.LoginDataSet();
-            this.buttonView = new System.Windows.Forms.Button();
-            this.orderRecordTableAdapter = new login.LoginDataSetTableAdapters.OrderRecordTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderRecordBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -59,36 +59,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(544, 253);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // orderIDDataGridViewTextBoxColumn
-            // 
-            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID";
-            this.orderIDDataGridViewTextBoxColumn.HeaderText = "OrderID";
-            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
-            // 
-            // orderDateDataGridViewTextBoxColumn
-            // 
-            this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "OrderDate";
-            this.orderDateDataGridViewTextBoxColumn.HeaderText = "OrderDate";
-            this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
-            // 
-            // orderStatusDataGridViewTextBoxColumn
-            // 
-            this.orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
-            this.orderStatusDataGridViewTextBoxColumn.HeaderText = "OrderStatus";
-            this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
-            // 
-            // shippingMethodDataGridViewTextBoxColumn
-            // 
-            this.shippingMethodDataGridViewTextBoxColumn.DataPropertyName = "ShippingMethod";
-            this.shippingMethodDataGridViewTextBoxColumn.HeaderText = "ShippingMethod";
-            this.shippingMethodDataGridViewTextBoxColumn.Name = "shippingMethodDataGridViewTextBoxColumn";
-            // 
-            // trackingNumberDataGridViewTextBoxColumn
-            // 
-            this.trackingNumberDataGridViewTextBoxColumn.DataPropertyName = "TrackingNumber";
-            this.trackingNumberDataGridViewTextBoxColumn.HeaderText = "TrackingNumber";
-            this.trackingNumberDataGridViewTextBoxColumn.Name = "trackingNumberDataGridViewTextBoxColumn";
             // 
             // orderRecordBindingSource
             // 
@@ -114,6 +84,41 @@
             // orderRecordTableAdapter
             // 
             this.orderRecordTableAdapter.ClearBeforeFill = true;
+            // 
+            // orderIDDataGridViewTextBoxColumn
+            // 
+            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID";
+            this.orderIDDataGridViewTextBoxColumn.HeaderText = "OrderID";
+            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
+            this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orderDateDataGridViewTextBoxColumn
+            // 
+            this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "OrderDate";
+            this.orderDateDataGridViewTextBoxColumn.HeaderText = "OrderDate";
+            this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
+            this.orderDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orderStatusDataGridViewTextBoxColumn
+            // 
+            this.orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
+            this.orderStatusDataGridViewTextBoxColumn.HeaderText = "OrderStatus";
+            this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
+            this.orderStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shippingMethodDataGridViewTextBoxColumn
+            // 
+            this.shippingMethodDataGridViewTextBoxColumn.DataPropertyName = "ShippingMethod";
+            this.shippingMethodDataGridViewTextBoxColumn.HeaderText = "ShippingMethod";
+            this.shippingMethodDataGridViewTextBoxColumn.Name = "shippingMethodDataGridViewTextBoxColumn";
+            this.shippingMethodDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // trackingNumberDataGridViewTextBoxColumn
+            // 
+            this.trackingNumberDataGridViewTextBoxColumn.DataPropertyName = "TrackingNumber";
+            this.trackingNumberDataGridViewTextBoxColumn.HeaderText = "TrackingNumber";
+            this.trackingNumberDataGridViewTextBoxColumn.Name = "trackingNumberDataGridViewTextBoxColumn";
+            this.trackingNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormOrderHistory
             // 

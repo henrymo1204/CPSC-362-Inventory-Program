@@ -34,15 +34,15 @@ namespace login
         {
             if (string.IsNullOrEmpty(txtUsername.Text) && string.IsNullOrEmpty(txtPassword.Text))//if user did not input both username and password
             {
-                MessageBox.Show("You did not enter username and password!");//show message box
+                MessageBox.Show("You did not enter a username and a password!");//show message box
             }
             else if (!string.IsNullOrEmpty(txtUsername.Text) && string.IsNullOrEmpty(txtPassword.Text))//if user did not input password
             {
-                MessageBox.Show("You did not enter password!");//show message box
+                MessageBox.Show("You did not enter a password!");//show message box
             }
             else if (string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))//if user did not input username
             {
-                MessageBox.Show("You did not enter username!");//show message box
+                MessageBox.Show("You did not enter a username!");//show message box
             }
             else//if user did input both username and password
             {

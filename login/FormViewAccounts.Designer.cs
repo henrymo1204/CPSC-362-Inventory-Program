@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.loginGrid = new System.Windows.Forms.DataGridView();
-            this.loginIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usergroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.loginDataSet = new login.LoginDataSet();
             this.exitButton = new System.Windows.Forms.Button();
             this.loginTableAdapter = new login.LoginDataSetTableAdapters.LoginTableAdapter();
+            this.loginIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usergroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.loginGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
@@ -60,6 +60,31 @@
             this.loginGrid.ReadOnly = true;
             this.loginGrid.Size = new System.Drawing.Size(446, 237);
             this.loginGrid.TabIndex = 0;
+            // 
+            // loginBindingSource
+            // 
+            this.loginBindingSource.DataMember = "Login";
+            this.loginBindingSource.DataSource = this.loginDataSet;
+            // 
+            // loginDataSet
+            // 
+            this.loginDataSet.DataSetName = "LoginDataSet";
+            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(193, 321);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(126, 65);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // loginTableAdapter
+            // 
+            this.loginTableAdapter.ClearBeforeFill = true;
             // 
             // loginIDDataGridViewTextBoxColumn
             // 
@@ -88,31 +113,6 @@
             this.usergroupDataGridViewTextBoxColumn.HeaderText = "Usergroup";
             this.usergroupDataGridViewTextBoxColumn.Name = "usergroupDataGridViewTextBoxColumn";
             this.usergroupDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // loginBindingSource
-            // 
-            this.loginBindingSource.DataMember = "Login";
-            this.loginBindingSource.DataSource = this.loginDataSet;
-            // 
-            // loginDataSet
-            // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // exitButton
-            // 
-            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(193, 321);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(126, 65);
-            this.exitButton.TabIndex = 1;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // loginTableAdapter
-            // 
-            this.loginTableAdapter.ClearBeforeFill = true;
             // 
             // FormViewAccounts
             // 
