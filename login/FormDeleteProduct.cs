@@ -62,7 +62,7 @@ namespace login
             SqlCommand query = new SqlCommand("DELETE FROM Product WHERE productID = @productID", sqlcon);//delete product from database
             SqlCommand query1 = new SqlCommand("SELECT ProductID FROM Product WHERE ProductBrand + ' ' + ProductName = '" + comboBox1.SelectedItem + "';", sqlcon);//get product id from product brand + product name in combobox1
             SqlCommand query2 = new SqlCommand("DELETE FROM IncomingProduct WHERE ProductID = @ProductID;", sqlcon);
-            SqlCommand query3 = new SqlCommand("DELETE FROM OrderListID WHERE ProductID = @ProductID;", sqlcon);
+            SqlCommand query3 = new SqlCommand("DELETE FROM OrderList WHERE ProductID = @ProductID;", sqlcon);
             if(comboBox1.SelectedIndex > -1)//check if something is selected in combobox1
             {//if true
                 sqlcon.Open();//open database

@@ -231,7 +231,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormInsertShippingInfomation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Insert Shipping Information";
             this.Load += new System.EventHandler(this.FormInsertShippingInfomation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();

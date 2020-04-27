@@ -334,7 +334,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 60);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Shipment Expected Arrival Time";
+            this.button3.Text = "Shipments";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -382,7 +382,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Shown += new System.EventHandler(this.Form2_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

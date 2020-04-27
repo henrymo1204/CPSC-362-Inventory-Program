@@ -50,7 +50,8 @@ namespace login
 
         private void button3_Click(object sender, EventArgs e)//open search shipment expected arrival time form
         {
-            FormSearchShipmentTime form = new FormSearchShipmentTime();//create search expected arrival time form object
+            FormSearchShipmentTime form = new FormSearchShipmentTime(this);//create search expected arrival time form object
+            form.UpdateEventHandler += FormSearchShipmentTime_UpdateEventHandler;//update gridview when updateeventhandler is called in delete product form object
             form.ShowDialog();//show seach expected arrival time form
         }
 
@@ -71,6 +72,11 @@ namespace login
             string count2 = query1.ExecuteScalar().ToString();
             sqlcon.Close();
             MessageBox.Show("You have " + count1 + " new order(s) and " + count2 + " order(s) in progress.");
+
+            //check for low and soon to expire/expired stock
+            Alert a = new Alert();
+            a.checkStock();
+            a.checkExp();
         }
 
         private DataTable dt = new DataTable();//data table object
@@ -96,6 +102,11 @@ namespace login
 
 
         private void FormUpdateProduct_UpdateEventHandler(object sender, FormUpdateProduct.UpdateEventArgs args)
+        {
+            dataGridView1.DataSource = Source();//fill grid view with data table from source() function
+        }
+
+        private void FormSearchShipmentTime_UpdateEventHandler(object sender, FormSearchShipmentTime.UpdateEventArgs args)
         {
             dataGridView1.DataSource = Source();//fill grid view with data table from source() function
         }

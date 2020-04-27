@@ -89,9 +89,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Alert.cs" />
     <Compile Include="classes\Client.cs" />
     <Compile Include="classes\Connection.cs" />
     <Compile Include="classes\Orders.cs" />
+    <Compile Include="classes\Product.cs" />
     <Compile Include="classes\Supplier.cs" />
     <Compile Include="classes\User.cs" />
     <Compile Include="FormNewOrder.cs">

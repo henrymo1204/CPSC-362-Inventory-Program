@@ -102,7 +102,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormSearchProductLocation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormSearchProductLocation";
+            this.Text = "Product Location";
             this.ResumeLayout(false);
             this.PerformLayout();
 

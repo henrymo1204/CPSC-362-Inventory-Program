@@ -49,7 +49,7 @@
             this.Controls.Add(this.reportViewer1);
             this.Name = "FormOrderInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormOderInfo";
+            this.Text = "Order Info";
             this.Load += new System.EventHandler(this.FormOderInfo_Load);
             this.ResumeLayout(false);
 
